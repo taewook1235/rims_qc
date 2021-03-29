@@ -9,7 +9,7 @@ var myService = '0000FFF0-0000-1000-8000-00805F9B34FB';        // fill in a serv
 var myCharacteristic = '0000FFF2-0000-1000-8000-00805F9B34FB';   // fill in a characteristic from the service here
 
 alert('Asdf');
-3
+
 function connect(){
  
   navigator.bluetooth.requestDevice({
