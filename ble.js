@@ -10,6 +10,7 @@ var myCharacteristic = '0000FFF2-0000-1000-8000-00805F9B34FB';   // fill in a ch
 
 
 function connect(){
+  msgbox("Asdf");
   navigator.bluetooth.requestDevice({
     // filters: [myFilters]       // you can't use filters and acceptAllDevices together
     optionalServices: [myService],
