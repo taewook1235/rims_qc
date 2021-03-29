@@ -5,8 +5,8 @@ created 6 Aug 2018
 by Tom Igoe
 */
 var myDevice;
-var myService = '0000fff0-0000-1000-8000-00805f9b34fb';        // fill in a service you're looking for here
-var myCharacteristic = '0000fff1-0000-1000-8000-00805f9b34fb';   // fill in a characteristic from the service here
+var myService = 0xfff0;        // fill in a service you're looking for here
+var myCharacteristic = 0xfff1;   // fill in a characteristic from the service here
 
 
 function connect(){
