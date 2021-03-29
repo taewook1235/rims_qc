@@ -6,7 +6,7 @@ by Tom Igoe
 */
 var myDevice;
 var myService = '0000fff0-0000-1000-8000-00805f9b34fb';        // fill in a service you're looking for here
-var myCharacteristic = '0000fff2-0000-1000-8000-00805f9b34fb';   // fill in a characteristic from the service here
+var myCharacteristic = '0000fff1-0000-1000-8000-00805f9b34fb';   // fill in a characteristic from the service here
 
 
 function connect(){
