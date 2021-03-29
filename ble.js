@@ -5,13 +5,9 @@ created 6 Aug 2018
 by Tom Igoe
 */
 var myDevice;
-const myService = '0000FFF0-0000-1000-8000-00805F9B34FB';        // fill in a service you're looking for here
-const myCharacteristic = '0000FFF2-0000-1000-8000-00805F9B34FB';   // fill in a characteristic from the service here
+var myService = '12345678-1234-5678-1234-56789abcdef0';        // fill in a service you're looking for here
+var myCharacteristic = '12345678-1234-5678-1234-56789abcdef0';   // fill in a characteristic from the service here
 
-
-const ThingyMainService = 'ef680100-9b35-4933-9b10-52ffa9740042';
-const ThingyUserInterfaceService = 'ef680300-9b35-4933-9b10-52ffa9740042';
-const ThingyLEDCharacteristic = 'ef680301-9b35-4933-9b10-52ffa9740042';
 
 function connect(){
   navigator.bluetooth.requestDevice({
