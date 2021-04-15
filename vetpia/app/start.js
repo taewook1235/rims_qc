@@ -147,6 +147,8 @@ function updateToGraph(positionArray,forceArray,commandArray){
     }
     else {
         back_flag = 1;
+        console.log(min);
+        console.log(length);
         if ( parseFloat(length) < parseFloat(min) ){
             initGraph();
         }
@@ -155,7 +157,6 @@ function updateToGraph(positionArray,forceArray,commandArray){
     }
 
 
-        console.log(back_flag);
 }
 
 function listener(event) {
