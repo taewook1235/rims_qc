@@ -141,7 +141,11 @@ function listener(event) {
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - 20;
     if ( commandArray != 20.0){
-        updateData(positionArray,commandArray);
+        updateData(positionArray,forceArray);
+    }
+    else {
+        $("#n_length").text(length);
+        $("#n_force").text(forceArray);
     }
 }
 
