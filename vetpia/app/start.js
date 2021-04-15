@@ -1,5 +1,6 @@
 initSessionData();
-
+var position_sub = 20;
+var back_flag = 0;
 function initSessionData(){
     let vetpia = sessionStorage.getItem("vetpia");
     if (vetpia == null){
@@ -20,15 +21,23 @@ var min=0,max=0;
 var totalCount = 1; 
 length = parseInt(length);    
 if(length==50) {
-    min=0; max=50;}
+    min=0; max=50;
+    position_sub = 25;}
 else if(length==55){
     min=5; max=55;
+    position_sub = 25;
 }
 else if(length==60){
     min=10; max=60;
+    position_sub = 20;
 }
 else if(length==80) {
     min=30; max=80;
+    position_sub = 0;
+}
+else {
+    min=10; max=60;
+    position_sub = 20;
 }
 
 var g_options = {
@@ -45,15 +54,15 @@ var g_options = {
     axisY: { 
         title: "Force(gf)",
         minimum: 0,
-        maximum: 2000,
+        maximum: 1500,
         
     },
     width:645,
     height:503,
     data: [{
-        type: "splineArea",
+        type: "area",
         toolTipContent: "<b>Length: {x}</b> </br> Force: {y}",
-        dataPoints: v_dataPoints
+        dataPoints: v_dataPoints,
     }]
 };
 
@@ -101,19 +110,53 @@ function initGraph(){
 }
 
 function updateData(positionArray,forceArray) {
+    
+    var length = positionArray.toFixed(2);
+
     if(v_dataPoints[v_dataPoints.length-1]["x"]!=positionArray && typeof positionArray=="number")
-        {v_dataPoints.push({ x: positionArray, y: forceArray});}
-        console.log(v_dataPoints);
+        {
+            v_dataPoints.push({ x: positionArray, y: forceArray});}
+        //console.log(v_dataPoints);
     if(v_dataPoints.length>2) {
         $("#start_chartContainer").CanvasJSChart().render();
         $("#start_slide_needle").val(positionArray).slider("refresh");
-        $("#n_length").text(positionArray);
+        $("#n_length").text(length);
         $("#n_force").text(forceArray);
     }
-    if((v_dataPoints[v_dataPoints.length-1].x<v_dataPoints[v_dataPoints.length-2].x) && totalCount ==1){
+    /*
+    if((v_dataPoints[v_dataPoints.length-1].x<v_dataPoints[v_dataPoints.length-2].x) && back_flag == 0 ){
+        back_flag = 1;
         totalCount = totalCount + 1;
         $("#start_txt_info_count").text(totalCount);
     }
+    */
+}
+
+function updateToGraph(positionArray,forceArray,commandArray){
+
+   // updateData(positionArray,forceArray);
+    var length =positionArray.toFixed(2);
+    
+    if ( commandArray != 20.0){        
+        if( back_flag == 1 ){
+            back_flag = 0;
+            totalCount = totalCount + 1;
+            $("#start_txt_info_count").text(totalCount);
+        }
+        updateData(positionArray,forceArray);    
+    }
+    else {
+        back_flag = 1;
+        console.log(min);
+        console.log(length);
+        if ( parseFloat(length) < parseFloat(min+1) ){
+            initGraph();
+        }
+        $("#n_length").text(length);
+        $("#n_force").text(forceArray);
+    }
+
+
 }
 
 function listener(event) {
@@ -123,17 +166,19 @@ function listener(event) {
     let positionArray = new Uint8Array(4);
     let timeArray = new Uint8Array(4);
     let commandArray =new Uint8Array(4);
+    let testdArray =new Uint8Array(4);
     for (let i = 0; i < value.byteLength; i++) {
         tmpResult.push(value.getUint8(i));
     }
     forceArray = getFloat(tmpResult.slice(2,6).reverse());
     positionArray = getFloat(tmpResult.slice(6,10).reverse());
     timeArray = getFloat(tmpResult.slice(10,14).reverse());
-    commandArray = getFloat(tmpResult.slice(14).reverse());
+    commandArray = getFloat(tmpResult.slice(14,18).reverse());
+    
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
-    positionArray = positionArray - 20;
-    updateData(positionArray,forceArray);
+    positionArray = positionArray - position_sub;
+    updateToGraph(positionArray,forceArray,commandArray);
 }
 
 function getFloat(array) {
@@ -156,9 +201,12 @@ class VETPIA {
     }
     request() {
         let options = {
-            "filters": [{
-            "name": "CHIPSEN"
-            }],
+            "filters": [
+               { name : "EPIA"} , 
+               { name : "CHIPSEN"} ,
+               { name : "VETPIA"} 
+
+            ],
             "optionalServices": [0xFFF0]
         };
         return navigator.bluetooth.requestDevice(options)
@@ -332,14 +380,15 @@ function start_js() {
             vetpia.request()
             .then(_ => vetpia.connect())
             .then(_ => { 
-                viewInfo("Device connected..");
+                viewInfo("<font color=#00ff00>Device connected..</font>");
+
                 initGraph();
                 graphInterval = setInterval(function(){
                     vetpia.startNotifications(listener);
                     vetpia.stopNotifications(listener);
                 },200)
             })
-            .catch(error => { viewInfo(error)});
+            .catch(error => { viewInfo("<font color=#00ff00>" + error + "</font>")});
         });
     };
 
