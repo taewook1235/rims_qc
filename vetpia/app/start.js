@@ -30,6 +30,9 @@ else if(length==60){
 else if(length==80) {
     min=30; max=80;
 }
+else {
+    min=10; max=60;
+}
 
 var g_options = {
     exportEnabled: true,
