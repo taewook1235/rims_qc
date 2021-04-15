@@ -353,7 +353,8 @@ function start_js() {
             vetpia.request()
             .then(_ => vetpia.connect())
             .then(_ => { 
-                viewInfo("Device connected..");
+                viewInfo("<font color=#0000ff>Device connected..</font>");
+
                 initGraph();
                 graphInterval = setInterval(function(){
                     vetpia.startNotifications(listener);
