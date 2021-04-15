@@ -147,7 +147,7 @@ function updateToGraph(positionArray,forceArray,commandArray){
     }
     else {
         back_flag = 1;
-        if ( length < min){
+        if ( length < parseFloat(min)){
             initGraph();
         }
         $("#n_length").text(length);
