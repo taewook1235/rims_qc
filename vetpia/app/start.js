@@ -111,8 +111,6 @@ function initGraph(){
 
 function updateData(positionArray,forceArray) {
     
-    var length = positionArray.toFixed(2);
-
     if(v_dataPoints[v_dataPoints.length-1]["x"]!=positionArray && typeof positionArray=="number")
         {
             back_flag = 0;
@@ -124,11 +122,37 @@ function updateData(positionArray,forceArray) {
         $("#n_length").text(length);
         $("#n_force").text(forceArray);
     }
+    /*
     if((v_dataPoints[v_dataPoints.length-1].x<v_dataPoints[v_dataPoints.length-2].x) && back_flag == 0 ){
         back_flag = 1;
         totalCount = totalCount + 1;
         $("#start_txt_info_count").text(totalCount);
     }
+    */
+}
+
+function updateToGraph(positionArray,forceArray,commandArray){
+
+    updateData(positionArray,forceArray);
+    var length = positionArray.toFixed(2);
+    
+    if ( commandArray != 20.0){        
+        if( back_flag == 1 ){
+            back_flag = 0;
+            totalCount = totalCount + 1;
+            $("#start_txt_info_count").text(totalCount);
+        }
+        updateData(positionArray,length);    
+
+
+    }
+    else {
+        back_flag = 1;
+        $("#n_length").text(length);
+        $("#n_force").text(forceArray);
+    }
+
+
 }
 
 function listener(event) {
@@ -150,13 +174,7 @@ function listener(event) {
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - position_sub;
-    if ( commandArray != 20.0){
-        updateData(positionArray,forceArray);
-    }
-    else {
-        $("#n_length").text(positionArray);
-        $("#n_force").text(forceArray);
-    }
+    updateToGraph(positionArray,forceArray,commandArray);
 }
 
 function getFloat(array) {
