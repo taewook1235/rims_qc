@@ -1,0 +1,13 @@
+{
+    "short_name": "E-PIA",
+    "name": "E-PIA",
+    "description": "",
+    "display": "fullscreen",
+    "orientation": "any",
+    "start_url": "/",
+    "scope": "/",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [
+    ]
+}
