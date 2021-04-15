@@ -115,7 +115,7 @@ function updateData(positionArray,forceArray) {
         $("#n_length").text(length);
         $("#n_force").text(forceArray);
     }
-    if((v_dataPoints[v_dataPoints.length-1].x<v_dataPoints[v_dataPoints.length-2].x) && totalCount ==1){
+    if((v_dataPoints[v_dataPoints.length-1].x<v_dataPoints[v_dataPoints.length-2].x) ){
         totalCount = totalCount + 1;
         $("#start_txt_info_count").text(totalCount);
     }
