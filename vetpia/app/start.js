@@ -1,5 +1,5 @@
 initSessionData();
-
+var position_sub = 20;
 function initSessionData(){
     let vetpia = sessionStorage.getItem("vetpia");
     if (vetpia == null){
@@ -20,18 +20,23 @@ var min=0,max=0;
 var totalCount = 1; 
 length = parseInt(length);    
 if(length==50) {
-    min=0; max=50;}
+    min=0; max=50;
+    position_sub = 25;}
 else if(length==55){
     min=5; max=55;
+    position_sub = 25;
 }
 else if(length==60){
     min=10; max=60;
+    position_sub = 20;
 }
 else if(length==80) {
     min=30; max=80;
+    position_sub = 0;
 }
 else {
     min=10; max=60;
+    position_sub = 0;
 }
 
 var g_options = {
@@ -108,7 +113,7 @@ function updateData(positionArray,forceArray) {
 
     if(v_dataPoints[v_dataPoints.length-1]["x"]!=positionArray && typeof positionArray=="number")
         {v_dataPoints.push({ x: positionArray, y: forceArray});}
-        console.log(v_dataPoints);
+        //console.log(v_dataPoints);
     if(v_dataPoints.length>2) {
         $("#start_chartContainer").CanvasJSChart().render();
         $("#start_slide_needle").val(positionArray).slider("refresh");
@@ -139,7 +144,7 @@ function listener(event) {
     
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
-    positionArray = positionArray - 20;
+    positionArray = positionArray - position_sub;
     if ( commandArray != 20.0){
         updateData(positionArray,forceArray);
     }
