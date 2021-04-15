@@ -135,7 +135,7 @@ function updateData(positionArray,forceArray) {
 function updateToGraph(positionArray,forceArray,commandArray){
 
     updateData(positionArray,forceArray);
-    var length = positionArray.toFixed(2);
+    var length =parseFloat(positionArray.toFixed(2));
     
     if ( commandArray != 20.0){        
         if( back_flag == 1 ){
@@ -147,7 +147,7 @@ function updateToGraph(positionArray,forceArray,commandArray){
     }
     else {
         back_flag = 1;
-        if ( length < parseFloat(min)){
+        if ( length < parseFloat(min) ){
             initGraph();
         }
         $("#n_length").text(length);
