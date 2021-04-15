@@ -36,7 +36,7 @@ else if(length==80) {
 }
 else {
     min=10; max=60;
-    position_sub = 0;
+    position_sub = 20;
 }
 
 var g_options = {
@@ -353,7 +353,7 @@ function start_js() {
             vetpia.request()
             .then(_ => vetpia.connect())
             .then(_ => { 
-                viewInfo("<font color=#0000ff>Device connected..</font>");
+                viewInfo("<font color=#00ff00>Device connected..</font>");
 
                 initGraph();
                 graphInterval = setInterval(function(){
