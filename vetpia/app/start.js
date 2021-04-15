@@ -45,7 +45,7 @@ var g_options = {
     axisY: { 
         title: "Force(gf)",
         minimum: 0,
-        maximum: 2000,
+        maximum: 1500,
         
     },
     width:645,
@@ -125,13 +125,14 @@ function listener(event) {
     let positionArray = new Uint8Array(4);
     let timeArray = new Uint8Array(4);
     let commandArray =new Uint8Array(4);
+    let testdArray =new Uint8Array(4);
     for (let i = 0; i < value.byteLength; i++) {
         tmpResult.push(value.getUint8(i));
     }
     forceArray = getFloat(tmpResult.slice(2,6).reverse());
     positionArray = getFloat(tmpResult.slice(6,10).reverse());
     timeArray = getFloat(tmpResult.slice(10,14).reverse());
-    commandArray = getFloat(tmpResult.slice(14).reverse());
+    commandArray = getFloat(tmpResult.slice(14,18).reverse());
     
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
