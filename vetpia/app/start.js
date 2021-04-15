@@ -96,6 +96,7 @@ function initGraph(){
     g_options.data[0].dataPoints = v_dataPoints;
     $("#start_chartContainer").CanvasJSChart().render();
     $("#start_slide_needle").val(positionArray).slider("refresh");
+    positionArray.toFixed(2);
     $("#n_length").text(positionArray);
     $("#n_force").text(forceArray);
 }
@@ -107,6 +108,7 @@ function updateData(positionArray,forceArray) {
     if(v_dataPoints.length>2) {
         $("#start_chartContainer").CanvasJSChart().render();
         $("#start_slide_needle").val(positionArray).slider("refresh");
+        positionArray.toFixed(2);
         $("#n_length").text(positionArray);
         $("#n_force").text(forceArray);
     }
