@@ -141,7 +141,7 @@ function listener(event) {
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - 20;
     if ( commandArray != 20.0){
-        updateData(positionArray,forceArray);
+        updateData(positionArray,commandArray);
     }
 }
 
