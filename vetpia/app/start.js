@@ -102,7 +102,7 @@ function initGraph(){
 
 function updateData(positionArray,forceArray) {
     var length = positionArray.toFixed(2);
-    
+
     if(v_dataPoints[v_dataPoints.length-1]["x"]!=positionArray && typeof positionArray=="number")
         {v_dataPoints.push({ x: positionArray, y: forceArray});}
         console.log(v_dataPoints);
@@ -132,6 +132,7 @@ function listener(event) {
     positionArray = getFloat(tmpResult.slice(6,10).reverse());
     timeArray = getFloat(tmpResult.slice(10,14).reverse());
     commandArray = getFloat(tmpResult.slice(14).reverse());
+    
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - 20;
@@ -160,7 +161,7 @@ class VETPIA {
     request() {
         let options = {
             "filters": [{
-            "name": "CHIPSEN"
+                name: 'CHIPSEN'
             }],
             "optionalServices": [0xFFF0]
         };
