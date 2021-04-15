@@ -54,6 +54,7 @@ var g_options = {
         type: "spline",
         toolTipContent: "<b>Length: {x}</b> </br> Force: {y}",
         dataPoints: v_dataPoints
+        lineDashType: "solid",
     }]
 };
 
