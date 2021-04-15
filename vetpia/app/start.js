@@ -118,7 +118,7 @@ function updateData(positionArray,forceArray) {
     if(v_dataPoints.length>2) {
         $("#start_chartContainer").CanvasJSChart().render();
         $("#start_slide_needle").val(positionArray).slider("refresh");
-        $("#n_length").text(length);
+        $("#n_length").text(positionArray);
         $("#n_force").text(forceArray);
     }
     /*
@@ -141,7 +141,7 @@ function updateToGraph(positionArray,forceArray,commandArray){
             totalCount = totalCount + 1;
             $("#start_txt_info_count").text(totalCount);
         }
-        updateData(positionArray,length);    
+        updateData(length,forceArray);    
     }
     else {
         back_flag = 1;
@@ -150,6 +150,7 @@ function updateToGraph(positionArray,forceArray,commandArray){
     }
 
 
+        console.log(back_flag);
 }
 
 function listener(event) {
