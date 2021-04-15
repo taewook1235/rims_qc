@@ -113,7 +113,6 @@ function updateData(positionArray,forceArray) {
     
     if(v_dataPoints[v_dataPoints.length-1]["x"]!=positionArray && typeof positionArray=="number")
         {
-            back_flag = 0;
             v_dataPoints.push({ x: positionArray, y: forceArray});}
         //console.log(v_dataPoints);
     if(v_dataPoints.length>2) {
@@ -143,8 +142,6 @@ function updateToGraph(positionArray,forceArray,commandArray){
             $("#start_txt_info_count").text(totalCount);
         }
         updateData(positionArray,length);    
-
-
     }
     else {
         back_flag = 1;
