@@ -161,7 +161,7 @@ class VETPIA {
     request() {
         let options = {
             "filters": [{
-                services: ['0000FFF0-0000-1000-8000-00805F9B34FB']
+                name : "EPIA"
             }],
             "optionalServices": [0xFFF0]
         };
