@@ -51,8 +51,7 @@ var g_options = {
     width:645,
     height:503,
     data: [{
-        type: "line",
-        lineDashType: "solid",
+        type: "area",
         toolTipContent: "<b>Length: {x}</b> </br> Force: {y}",
         dataPoints: v_dataPoints,
     }]
