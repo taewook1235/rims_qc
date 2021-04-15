@@ -101,14 +101,15 @@ function initGraph(){
 }
 
 function updateData(positionArray,forceArray) {
+    var length = positionArray.toFixed(2);
+    
     if(v_dataPoints[v_dataPoints.length-1]["x"]!=positionArray && typeof positionArray=="number")
         {v_dataPoints.push({ x: positionArray, y: forceArray});}
         console.log(v_dataPoints);
     if(v_dataPoints.length>2) {
         $("#start_chartContainer").CanvasJSChart().render();
         $("#start_slide_needle").val(positionArray).slider("refresh");
-        positionArray.toFixed(2);
-  //      $("#n_length").text(positionArray);
+        $("#n_length").text(length);
         $("#n_force").text(forceArray);
     }
     if((v_dataPoints[v_dataPoints.length-1].x<v_dataPoints[v_dataPoints.length-2].x) && totalCount ==1){
