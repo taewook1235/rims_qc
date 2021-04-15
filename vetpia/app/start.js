@@ -1,5 +1,6 @@
 initSessionData();
 var position_sub = 20;
+var back_flag = 0;
 function initSessionData(){
     let vetpia = sessionStorage.getItem("vetpia");
     if (vetpia == null){
@@ -109,10 +110,13 @@ function initGraph(){
 }
 
 function updateData(positionArray,forceArray) {
+    
     var length = positionArray.toFixed(2);
 
     if(v_dataPoints[v_dataPoints.length-1]["x"]!=positionArray && typeof positionArray=="number")
-        {v_dataPoints.push({ x: positionArray, y: forceArray});}
+        {
+            back_flag = 0;
+            v_dataPoints.push({ x: positionArray, y: forceArray});}
         //console.log(v_dataPoints);
     if(v_dataPoints.length>2) {
         $("#start_chartContainer").CanvasJSChart().render();
@@ -120,7 +124,8 @@ function updateData(positionArray,forceArray) {
         $("#n_length").text(length);
         $("#n_force").text(forceArray);
     }
-    if((v_dataPoints[v_dataPoints.length-1].x<v_dataPoints[v_dataPoints.length-2].x) ){
+    if((v_dataPoints[v_dataPoints.length-1].x<v_dataPoints[v_dataPoints.length-2].x) && back_flag == 0 ){
+        back_flag = 1;
         totalCount = totalCount + 1;
         $("#start_txt_info_count").text(totalCount);
     }
@@ -149,7 +154,7 @@ function listener(event) {
         updateData(positionArray,forceArray);
     }
     else {
-        $("#n_length").text(length);
+        $("#n_length").text(positionArray);
         $("#n_force").text(forceArray);
     }
 }
