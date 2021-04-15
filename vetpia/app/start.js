@@ -149,7 +149,7 @@ function updateToGraph(positionArray,forceArray,commandArray){
         back_flag = 1;
         console.log(min);
         console.log(length);
-        if ( parseFloat(length) < parseFloat(min) ){
+        if ( parseFloat(length) < parseFloat(min+1) ){
             initGraph();
         }
         $("#n_length").text(length);
