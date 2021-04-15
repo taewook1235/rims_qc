@@ -161,9 +161,11 @@ class VETPIA {
     }
     request() {
         let options = {
-            "filters": [{
-                name : "EPIA"
-            }],
+            "filters": [
+               { name : "EPIA"} , 
+               { name : "CHIPSEN"} 
+
+            ],
             "optionalServices": [0xFFF0]
         };
         return navigator.bluetooth.requestDevice(options)
