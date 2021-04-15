@@ -51,6 +51,7 @@ var g_options = {
     width:645,
     height:503,
     data: [{
+        type: "spline",
         toolTipContent: "<b>Length: {x}</b> </br> Force: {y}",
         dataPoints: v_dataPoints
     }]
@@ -136,7 +137,7 @@ function listener(event) {
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - 20;
-    if (commandArray != 20)
+    
     updateData(positionArray,forceArray);
 }
 
