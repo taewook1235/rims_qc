@@ -51,10 +51,10 @@ var g_options = {
     width:645,
     height:503,
     data: [{
-        type: "spline",
-        toolTipContent: "<b>Length: {x}</b> </br> Force: {y}",
-        dataPoints: v_dataPoints
+        type: "line",
         lineDashType: "solid",
+        toolTipContent: "<b>Length: {x}</b> </br> Force: {y}",
+        dataPoints: v_dataPoints,
     }]
 };
 
