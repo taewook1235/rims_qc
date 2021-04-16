@@ -60,6 +60,7 @@ var g_options = {
     width:645,
     height:503,
     data: [{
+        markerType: "none",  //"circle", "square", "cross", "none"
         type: "area",
         toolTipContent: "<b>Length: {x}</b> </br> Force: {y}",
         dataPoints: v_dataPoints,
