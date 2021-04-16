@@ -241,7 +241,13 @@ $(document).off("pagecreate", "#after").on("pagecreate", "#after", function(even
 $(document).off("pageshow", "#after").on("pageshow", "#after", function(event, ui) {
             
     var arrNeedleLength = Data.dataPoints;
-    var arrLengLast = (arrNeedleLength.length)-1;
-    var insertLeng = arrNeedleLength[arrLengLast].x;
-    $("#after_input_insertlength").val(insertLeng);
+    if ( arrNeedleLength == null){
+        
+    }
+    else {
+        var arrLengLast = (arrNeedleLength.length)-1;
+        var insertLeng = arrNeedleLength[arrLengLast].x;
+        $("#after_input_insertlength").val(insertLeng);
+
+    }
 });
