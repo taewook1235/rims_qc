@@ -389,7 +389,7 @@ function start_js() {
                     vetpia.stopNotifications(listener);
                 },200)
             })
-            .catch(error => { viewInfo("<font color=#00ff00>" + error + "</font>")});
+            .catch(error => { viewInfo("<font color=#ff0000>" + error + "</font>")});
         });
     };
 
