@@ -54,7 +54,7 @@ var g_options = {
     axisY: { 
         title: "Force(gf)",
         minimum: 0,
-        maximum: 1500,
+        maximum: 2000,
         
     },
     width:645,
