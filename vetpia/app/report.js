@@ -35,7 +35,8 @@ var g_options = {
     width:690,
     height:425,
     data: [{
-        type: "splineArea",
+        type: "Area",
+        markerType: "none",  //"circle", "square", "cross", "none"
         toolTipContent: "<b>Length: {x}</b> </br> Force: {y}",
         dataPoints: v_dataPoints
     }]
