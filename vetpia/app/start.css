@@ -29,7 +29,7 @@
 }
 /* main_title */
 .start_main_title {
-  width:1190px;
+  width:1200px;
   text-decoration: none;
   font-weight: bold;
   text-align: center;
@@ -45,7 +45,7 @@
   border-style: solid;
   text-align: center;
   margin-left : auto;
-  
+
   margin-right : auto;
 }
 /* main_grid_name */
