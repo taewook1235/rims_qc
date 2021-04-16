@@ -15,7 +15,6 @@
         <link href="../css/theme/jqm/jqm.css" rel="stylesheet" />
         <link href="../css/theme/rim/rim.css" rel="stylesheet" />
         <link href="../libs/jquerymobile/1.4.5/jquery.mobile.structure-1.4.5.css" rel="stylesheet" />
-        <link href="/menu.html" rel="import" />
         <script type="text/javascript" src="../libs/underscore/underscore.js">
         </script>
         <script type="text/javascript" src="../libs/jquery/jquery-2.1.1.js">
@@ -71,7 +70,28 @@
                     VETPIA
                 </h1>
                 <!-- main_navbar -->
-                <!--include -->
+                     <div data-include-path="/menu.html"></div>
+ 
+                    <script>
+                
+                        window.addEventListener('load', function() {
+                            var allElements = document.getElementsByTagName('*');
+                            Array.prototype.forEach.call(allElements, function(el) {
+                                var includePath = el.dataset.includePath;
+                                if (includePath) {
+                                    var xhttp = new XMLHttpRequest();
+                                    xhttp.onreadystatechange = function () {
+                                        if (this.readyState == 4 && this.status == 200) {
+                                            el.outerHTML = this.responseText;
+                                        }
+                                    };
+                                    xhttp.open('GET', includePath, true);
+                                    xhttp.send();
+                                }
+                            });
+                        });
+                
+                    </script>
             </div>
             <!-- rim_container -->
             <div data-role="content" id="start_rim_container" name="rim_container" class="rim_container  start_rim_container ui-content"
