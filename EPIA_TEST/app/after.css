@@ -1,0 +1,289 @@
+/* Define default spinner */
+.ui-icon-loading {
+  background: url("../libs/jquerymobile/1.4.5/images/ajax-loader.gif") repeat
+    scroll 0 0 / 46px 46px transparent !important;
+}
+/* main_navbar */
+.after_main_navbar {
+}
+.after_main_navbar .ui-grid-a .ui-block-a {
+  clear: none;
+}
+.ui-footer .after_main_navbar ul li:last-child a {
+  margin-right: 1px !important;
+}
+.ui-header .after_main_navbar ul li:last-child a {
+  margin-right: -1px !important;
+}
+.after_main_navbar ul.ui-grid-duo li:nth-child(even) a {
+  margin-right: 1px !important;
+}
+/* rim_container */
+.ui-content.after_rim_container {
+  padding: 0px 0px 0px 0px;
+}
+/* mobileworkarea_10*/
+.after_mobileworkarea_10 {
+  background-color: transparent;
+  padding: 0px;
+}
+/* main_grid */
+.after_main_grid {
+  height: auto;
+  width: 800px;
+  margin: 50px 240px 50px 240px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.after_main_grid_wrapper {
+}
+.after_main_grid > tr > td {
+  vertical-align: top;
+}
+.after_main_grid_row_0,
+.after_main_grid_row_0 > td {
+  height: 30px;
+}
+/* main_grid_cell_input */
+.after_main_grid_cell_input {
+  height: 30px !important;
+  width: auto;
+  padding: 40px 50px 50px 50px;
+  background-color: #22293b;
+  border-color: #f0f0f0;
+  border-width: 2px;
+  border-style: solid;
+}
+.after_main_grid_cell_input > .cell-wrapper {
+  padding: 0;
+  margin: 0;
+}
+/* main_title */
+.after_main_title {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 26px;
+  margin: 0px 0px 40px 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* lbl_insertlength */
+.after_lbl_insertlength {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  margin: 0px 0px 10px 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* input_insertlength */
+.after_input_insertlength {
+  margin: 0px 0px 0px 0px;
+}
+/* lbl_insertangle */
+.after_lbl_insertangle {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  margin: 30px 0px 10px 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* slide_insertangle */
+.after_slide_insertangle {
+  margin: 0px 0px 0px 0px;
+}
+/* lbl_insertposition */
+.after_lbl_insertposition {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  margin: 30px 0px 10px 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* sel_insertposition */
+.after_sel_insertposition {
+  margin: 0px 0px 0px 0px;
+}
+/* lbl_patientpose */
+.after_lbl_patientpose {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  margin: 30px 0px 10px 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* sel_patientpose */
+.after_sel_patientpose {
+  margin: 0px 0px 0px 0px;
+}
+/* lbl_totalcount */
+.after_lbl_totalcount {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  margin: 30px 0px 10px 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* input_totalcount */
+.after_input_totalcount {
+  margin: 0px 0px 0px 0px;
+}
+/* lbl_trialtime */
+.after_lbl_trialtime {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  margin: 30px 0px 10px 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* input_trialtime */
+.after_input_trialtime {
+  margin: 0px 0px 0px 0px;
+}
+/* lbl_pitch */
+.after_lbl_pitch {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  margin: 30px 0px 10px 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* input_pitch */
+.after_input_pitch {
+  margin: 0px 0px 0px 0px;
+}
+/* lbl_difference */
+.after_lbl_difference {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  margin: 30px 0px 10px 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* input_difference */
+.after_input_difference {
+  margin: 0px 0px 0px 0px;
+}
+/* lbl_slope */
+.after_lbl_slope {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  margin: 30px 0px 10px 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* input_slope */
+.after_input_slope {
+  margin: 0px 0px 0px 0px;
+}
+/* main_grid_cell_btn */
+.after_main_grid_cell_btn {
+  height: auto;
+  width: 100%;
+  margin: 40px 0px 0px 0px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.after_main_grid_cell_btn_wrapper {
+}
+.after_main_grid_cell_btn > tr > td {
+  vertical-align: top;
+}
+.after_main_grid_cell_btn_row_0,
+.after_main_grid_cell_btn_row_0 > td {
+  height: 30px;
+}
+/* main_grid_cell_btn_cancel */
+.after_main_grid_cell_btn_cancel {
+  height: 30px !important;
+  width: auto;
+  padding: 0px 5px 0px 5px;
+  background-color: #22293b;
+}
+.after_main_grid_cell_btn_cancel > .cell-wrapper {
+  padding: 0;
+  margin: 0;
+}
+/* btn_doctor_con */
+#after_btn_doctor_con {
+}
+.ui-btn.after_btn_doctor_con {
+  margin: 0px 0px 0px 0px;
+}
+/* main_grid_cell_btn_con */
+.after_main_grid_cell_btn_con {
+  height: 30px !important;
+  width: auto;
+  padding: 0px 5px 0px 5px;
+  background-color: #22293b;
+}
+.after_main_grid_cell_btn_con > .cell-wrapper {
+  padding: 0;
+  margin: 0;
+}
+/* btn_doctor_cancel */
+#after_btn_doctor_cancel {
+}
+.ui-btn.after_btn_doctor_cancel {
+  margin: 0px 0px 0px 0px;
+}
+/* rim_footer */
+.after_rim_footer {
+  min-height: 38px;
+}
+
+/*slider tickmarks */
+.sliderTickmarks {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  width: 12.5%;
+  float: left;
+  border-right: 1px solid #888;
+}
+.sliderTickmarks span {
+  position: relative;
+  left: 100%;
+  top: 125%;
+  margin-left: -10px;
+  font-size: 12px;
+  font-weight: normal;
+}
+.ui-slider-track > div.sliderTickmarks:first-child {
+  border-right: 0;
+  width: 0;
+}
+.ui-slider-track > div.sliderTickmarks:first-child span {
+  margin-left: -5px;
+}
+.ui-slider-track > div.sliderTickmarks:last-of-type {
+  border-right: 0;
+}

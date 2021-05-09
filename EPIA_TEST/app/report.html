@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>
+            report
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, viewport-fit=cover">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready data:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+        <link href="../css/theme/jqm/jqm.css" rel="stylesheet" />
+        <link href="../css/theme/rim/rim.css" rel="stylesheet" />
+        <link href="../libs/apperyio/iphone-fix.css" rel="stylesheet" type="text/css" />
+        <link href="../libs/jquerymobile/1.4.5/jquery.mobile.structure-1.4.5.css" rel="stylesheet"/>
+        <script type="text/javascript" src="../libs/underscore/underscore.js">
+        </script>
+        <script type="text/javascript" src="../libs/store/json2.js">
+        </script>
+        <script type="text/javascript" src="../libs/jquery/jquery-2.1.1.js">
+        </script>
+        <script type="text/javascript" src="../libs/jquery/jquery-ajaxTransport.js">
+        </script>
+        <script type="text/javascript">
+            $(document).bind("mobileinit", function() {
+                if (navigator.userAgent.toLowerCase().indexOf("android") != -1) {
+                    $.mobile.defaultPageTransition = 'none';
+                    $.mobile.defaultDialogTransition = 'none';
+                } else if (navigator.userAgent.toLowerCase().indexOf("msie") != -1) {
+                    $.mobile.allowCrossDomainPages = true;
+                    $.support.cors = true;
+                } else if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
+                    $.mobile.hashListeningEnabled = false;
+                }
+            });
+        </script>
+        <script type="text/javascript" src="../libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.js">
+        </script>
+        <script type="text/javascript" src="../libs/apperyio/mobilebase.js">
+        </script>
+        <script type="text/javascript" src="../libs/event/customEventHandler.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/sha1.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/oauth.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/contexts.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/jquery.xml2json.min.js">
+        </script>
+        <script type="text/javascript" src="../libs/ms_sdk_bundle/client-sdk.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/appery.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/component-manager.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/mapping-impl.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/entity-api.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/login.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/storage-api.js">
+        </script>
+        <script type="text/javascript" src="../get_target_platform.js">
+        </script>
+        <script type="text/javascript" src="../cordova.js">
+        </script>
+        <script type="text/javascript">
+            if (typeof cordova !== "undefined" && cordova.platformId === 'ios') {
+                document.documentElement.style.setProperty('--iphone-safe-area-inset-top', '44px');
+                document.documentElement.style.setProperty('--iphone-safe-area-inset-bottom', '34px');
+            }
+        </script>
+        <link href="../libs/apperyio/mobilebase.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../js/services/model.js">
+        </script>
+        <script type="text/javascript" src="../js/canvasjs.js">
+        </script>
+        <script type="text/javascript" src="../js/storage.js">
+        </script>
+        <script type="text/javascript" src="../js/services/service.js">
+        </script>
+    </head>
+    
+    <body>
+        <script language="JavaScript" type="text/javascript">
+        </script>
+        <div data-role="page" style="min-height:800px;" dsid="report" id="report" class="type-interior"
+        data-theme="a">
+            <!-- rim_header -->
+            <div data-role="header" data-position="fixed" data-add-back-btn="false" data-back-btn-text="Back"
+            data-theme="a" name="rim_header" id="report_rim_header" class="rim_header  report_rim_header">
+                <h1 dsid="rim_header">
+                    VETPIA
+                </h1>
+                <!-- main_navbar -->
+                <div data-role="navbar" id="report_main_navbar" name="main_navbar" dsid="main_navbar"
+                class="main_navbar  report_main_navbar" data-theme="a" style="position: relative;" data-iconpos="left">
+                    <ul>
+                        <!-- navbar_home_item -->
+                        <li>
+                            <a data-theme="a" data-icon="home" id="report_navbar_home_item" dsid="navbar_home_item"
+                            name="navbar_home_item" style="font-size: 1em;">
+                            HOME
+                            </a>
+                        </li>
+                        <!-- navbar_before_item -->
+                        <li>
+                            <a data-theme="a" data-icon="carat-l" id="report_navbar_before_item" dsid="navbar_before_item"
+                            name="navbar_before_item" style="font-size: 1em;">
+                            PRE-OPERATION
+                            </a>
+                        </li>
+                        <!-- navbar_start_item -->
+                        <li>
+                            <a data-theme="a" data-icon="carat-u" id="report_navbar_start_item" dsid="navbar_start_item"
+                            name="navbar_start_item" style="font-size: 1em;">
+                            ON-OPERATION
+                            </a>
+                        </li>
+                        <!-- navbar_after_item -->
+                        <li>
+                            <a data-theme="a" data-icon="carat-r" id="report_navbar_after_item" dsid="navbar_after_item"
+                            name="navbar_after_item" style="font-size: 1em;">
+                            POST-OPERATION
+                            </a>
+                        </li>
+                        <!-- navbar_report_item -->
+                        <li>
+                            <a data-theme="a" data-icon="edit" id="report_navbar_report_item" dsid="navbar_report_item"
+                            name="navbar_report_item" style="font-size: 1em;">
+                            REPORT
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- rim_container -->
+            <div data-role="content" id="report_rim_container" name="rim_container" class="rim_container  report_rim_container ui-content"
+            dsid="rim_container" data-theme="a">
+                <link href="report.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="report.js">
+                </script>
+                <!-- mobileworkarea_10 -->
+                <div class="report_mobileworkarea_10 report_mobileworkarea_10">
+                    <!-- main_grid -->
+                    <div class="report_main_grid_wrapper" data-wrapper-for="main_grid">
+                        <table id="report_main_grid" class="main_grid  report_main_grid" dsid="main_grid"
+                        name="main_grid" cellpadding=0 cellspacing=0>
+                            <col style="width:auto;" />
+                            <tr class="report_main_grid_row_0">
+                                <!-- main_grid_cell -->
+                                <td id="report_main_grid_cell" name="main_grid_cell" class="report_main_grid_cell"
+                                colspan=1 rowspan=1>
+                                    <div class="cell-wrapper">
+                                        <!-- main_title -->
+                                        <div name="main_title" id="report_main_title" dsid="main_title" data-role="appery_label"
+                                        class="main_title  report_main_title">
+                                            REPORT FORM
+                                        </div>
+                                        <!-- main_grid_graph -->
+                                        <div class="report_main_grid_graph_wrapper" data-wrapper-for="main_grid_graph">
+                                            <table id="report_main_grid_graph" class="main_grid_graph  report_main_grid_graph"
+                                            dsid="main_grid_graph" name="main_grid_graph" cellpadding=0 cellspacing=0>
+                                                <col style="width:auto;" />
+                                                <tr class="report_main_grid_graph_row_0">
+                                                    <!-- cell_graph -->
+                                                    <td id="report_cell_graph" name="cell_graph" class="report_cell_graph" colspan=1
+                                                    rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <div name="chartContainer" dsid="chartContainer" id="chartContainer"
+                                                            class="chartContainer">
+                                                            </div>
+															
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- main_grid_cell_content_grid -->
+                                        <div class="report_main_grid_cell_content_grid_wrapper" data-wrapper-for="main_grid_cell_content_grid">
+                                            <table id="report_main_grid_cell_content_grid" class="main_grid_cell_content_grid  report_main_grid_cell_content_grid"
+                                            dsid="main_grid_cell_content_grid" name="main_grid_cell_content_grid" cellpadding=0
+                                            cellspacing=0>
+                                                <col style="width:auto;" />
+                                                <col style="width:auto;" />
+                                                <tr class="report_main_grid_cell_content_grid_row_0">
+                                                    <!-- cell_surgeryNumber -->
+                                                    <td id="report_cell_surgeryNumber" name="cell_surgeryNumber" class="report_cell_surgeryNumber"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_surgerynumber -->
+                                                            <div name="lbl_surgerynumber" id="report_lbl_surgerynumber" dsid="lbl_surgerynumber"
+                                                            data-role="appery_label" class="lbl_surgerynumber  report_lbl_surgerynumber">
+                                                                Operation Number
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_surgeryNumber_value -->
+                                                    <td id="report_cell_surgeryNumber_value" name="cell_surgeryNumber_value" class="report_cell_surgeryNumber_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_surgeryNumber_value -->
+                                                            <div name="lbl_surgeryNumber_value" id="report_lbl_surgeryNumber_value" dsid="lbl_surgeryNumber_value"
+                                                            data-role="appery_label" class="lbl_surgeryNumber_valu  report_lbl_surgeryNumber_value">
+                                                                02H00000001
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_1">
+                                                    <!-- cell_doctorName -->
+                                                    <td id="report_cell_doctorName" name="cell_doctorName" class="report_cell_doctorName"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_DoctorName -->
+                                                            <div name="lbl_DoctorName" id="report_lbl_DoctorName" dsid="lbl_DoctorName" data-role="appery_label"
+                                                            class="lbl_DoctorName  report_lbl_DoctorName">
+                                                                Operator Name
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_doctorName_value -->
+                                                    <td id="report_cell_doctorName_value" name="cell_doctorName_value" class="report_cell_doctorName_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_doctorName_value -->
+                                                            <div name="lbl_doctorName_value" id="report_lbl_doctorName_value" dsid="lbl_doctorName_value"
+                                                            data-role="appery_label" class="lbl_doctorName_value  report_lbl_doctorName_value">
+                                                                hong gil dong
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_2">
+                                                    <!-- cell_hospitalName -->
+                                                    <td id="report_cell_hospitalName" name="cell_hospitalName" class="report_cell_hospitalName"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_HospitalName -->
+                                                            <div name="lbl_HospitalName" id="report_lbl_HospitalName" dsid="lbl_HospitalName"
+                                                            data-role="appery_label" class="lbl_HospitalName  report_lbl_HospitalName">
+                                                                Affiliation
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_hospitalName_value -->
+                                                    <td id="report_cell_hospitalName_value" name="cell_hospitalName_value" class="report_cell_hospitalName_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_hospitalName_value -->
+                                                            <div name="lbl_hospitalName_value" id="report_lbl_hospitalName_value" dsid="lbl_hospitalName_value"
+                                                            data-role="appery_label" class="lbl_hospitalName_value  report_lbl_hospitalName_value">
+                                                                korea
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_3">
+                                                    <!-- cell_department -->
+                                                    <td id="report_cell_department" name="cell_department" class="report_cell_department"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_Department -->
+                                                            <div name="lbl_Department" id="report_lbl_Department" dsid="lbl_Department" data-role="appery_label"
+                                                            class="lbl_Department  report_lbl_Department">
+                                                                Department
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_depart_value -->
+                                                    <td id="report_cell_depart_value" name="cell_depart_value" class="report_cell_depart_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_depart_value -->
+                                                            <div name="lbl_depart_value" id="report_lbl_depart_value" dsid="lbl_depart_value"
+                                                            data-role="appery_label" class="lbl_depart_value  report_lbl_depart_value">
+                                                                surgery
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_4">
+                                                    <!-- cell_species -->
+                                                    <td id="report_cell_species" name="cell_species" class="report_cell_species" colspan=1
+                                                    rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_Species -->
+                                                            <div name="lbl_Species" id="report_lbl_Species" dsid="lbl_Species" data-role="appery_label"
+                                                            class="lbl_Species  report_lbl_Species">
+                                                                Species
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_species_value -->
+                                                    <td id="report_cell_species_value" name="cell_species_value" class="report_cell_species_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_species_value -->
+                                                            <div name="lbl_species_value" id="report_lbl_species_value" dsid="lbl_species_value"
+                                                            data-role="appery_label" class="lbl_species_value  report_lbl_species_value">
+                                                                dog
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_5">
+                                                    <!-- cell_subspecies -->
+                                                    <td id="report_cell_subspecies" name="cell_subspecies" class="report_cell_subspecies"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_SubSpecies -->
+                                                            <div name="lbl_SubSpecies" id="report_lbl_SubSpecies" dsid="lbl_SubSpecies" data-role="appery_label"
+                                                            class="lbl_SubSpecies  report_lbl_SubSpecies">
+                                                                Breeds
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_subspecies_value -->
+                                                    <td id="report_cell_subspecies_value" name="cell_subspecies_value" class="report_cell_subspecies_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_subspecies_value -->
+                                                            <div name="lbl_subspecies_value" id="report_lbl_subspecies_value" dsid="lbl_subspecies_value"
+                                                            data-role="appery_label" class="lbl_subspecies_value  report_lbl_subspecies_value">
+                                                                poodle
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_6">
+                                                    <!-- cell_name -->
+                                                    <td id="report_cell_name" name="cell_name" class="report_cell_name" colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_PatientName -->
+                                                            <div name="lbl_PatientName" id="report_lbl_PatientName" dsid="lbl_PatientName" data-role="appery_label"
+                                                            class="lbl_PatientName  report_lbl_PatientName">
+                                                                Patient Name
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_name_value -->
+                                                    <td id="report_cell_name_value" name="cell_name_value" class="report_cell_name_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_name_value -->
+                                                            <div name="lbl_name_value" id="report_lbl_name_value" dsid="lbl_name_value" data-role="appery_label"
+                                                            class="lbl_name_value  report_lbl_name_value">
+                                                                qoo
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_7">
+                                                    <!-- cell_age -->
+                                                    <td id="report_cell_age" name="cell_age" class="report_cell_age" colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_PatientAge -->
+                                                            <div name="lbl_PatientAge" id="report_lbl_PatientAge" dsid="lbl_PatientAge" data-role="appery_label"
+                                                            class="lbl_PatientAge  report_lbl_PatientAge">
+                                                                Patient Age
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_age_value -->
+                                                    <td id="report_cell_age_value" name="cell_age_value" class="report_cell_age_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_age_value -->
+                                                            <div name="lbl_age_value" id="report_lbl_age_value" dsid="lbl_age_value" data-role="appery_label"
+                                                            class="lbl_age_value  report_lbl_age_value">
+                                                                3
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_8">
+                                                    <!-- cell_gender -->
+                                                    <td id="report_cell_gender" name="cell_gender" class="report_cell_gender" colspan=1
+                                                    rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_PatientGender -->
+                                                            <div name="lbl_PatientGender" id="report_lbl_PatientGender" dsid="lbl_PatientGender"
+                                                            data-role="appery_label" class="lbl_PatientGender  report_lbl_PatientGender">
+                                                                Patient Sex
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_gender_value -->
+                                                    <td id="report_cell_gender_value" name="cell_gender_value" class="report_cell_gender_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_gender_value -->
+                                                            <div name="lbl_gender_value" id="report_lbl_gender_value" dsid="lbl_gender_value"
+                                                            data-role="appery_label" class="lbl_gender_value  report_lbl_gender_value">
+                                                                male
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_9">
+                                                    <!-- cell_weight -->
+                                                    <td id="report_cell_weight" name="cell_weight" class="report_cell_weight" colspan=1
+                                                    rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_PatientWeight -->
+                                                            <div name="lbl_PatientWeight" id="report_lbl_PatientWeight" dsid="lbl_PatientWeight"
+                                                            data-role="appery_label" class="lbl_PatientWeight  report_lbl_PatientWeight">
+                                                                Patient Weight
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_weight_value -->
+                                                    <td id="report_cell_weight_value" name="cell_weight_value" class="report_cell_weight_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_weight_value -->
+                                                            <div name="lbl_weight_value" id="report_lbl_weight_value" dsid="lbl_weight_value"
+                                                            data-role="appery_label" class="lbl_weight_value  report_lbl_weight_value">
+                                                                25
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_11">
+                                                    <!-- cell_gauge -->
+                                                    <td id="report_cell_gauge" name="cell_gauge" class="report_cell_gauge" colspan=1
+                                                    rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_NeedleGauge -->
+                                                            <div name="lbl_NeedleGauge" id="report_lbl_NeedleGauge" dsid="lbl_NeedleGauge" data-role="appery_label"
+                                                            class="lbl_NeedleGauge  report_lbl_NeedleGauge">
+                                                                Needle Gauge
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_gauge_value -->
+                                                    <td id="report_cell_gauge_value" name="cell_gauge_value" class="report_cell_gauge_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_gauge_value -->
+                                                            <div name="lbl_gauge_value" id="report_lbl_gauge_value" dsid="lbl_gauge_value" data-role="appery_label"
+                                                            class="lbl_gauge_value  report_lbl_gauge_value">
+                                                                18g
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_12">
+                                                    <!-- cell_length -->
+                                                    <td id="report_cell_length" name="cell_length" class="report_cell_length" colspan=1
+                                                    rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_NeedleLength -->
+                                                            <div name="lbl_NeedleLength" id="report_lbl_NeedleLength" dsid="lbl_NeedleLength"
+                                                            data-role="appery_label" class="lbl_NeedleLength  report_lbl_NeedleLength">
+                                                                Needle Length
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_length_value -->
+                                                    <td id="report_cell_length_value" name="cell_length_value" class="report_cell_length_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_length_value -->
+                                                            <div name="lbl_length_value" id="report_lbl_length_value" dsid="lbl_length_value"
+                                                            data-role="appery_label" class="lbl_length_value  report_lbl_length_value">
+                                                                20
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_17">
+                                                    <!-- cell_count -->
+                                                    <td id="report_cell_count" name="cell_count" class="report_cell_count" colspan=1
+                                                    rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_Count -->
+                                                            <div name="lbl_Count" id="report_lbl_Count" dsid="lbl_Count" data-role="appery_label"
+                                                            class="lbl_Count  report_lbl_Count">
+                                                                Total Count
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- cell_count_value -->
+                                                    <td id="report_cell_count_value" name="cell_count_value" class="report_cell_count_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- lbl_count_value -->
+                                                            <div name="lbl_count_value" id="report_lbl_count_value" dsid="lbl_count_value" data-role="appery_label"
+                                                            class="lbl_count_value  report_lbl_count_value">
+                                                                1
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_20">
+                                                    
+                                                    <td id="report_cell_angle" name="cell_angle" class="report_cell_angle" colspan=1
+                                                    rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <div name="lbl_InsertAngle" id="report_lbl_InsertAngle" dsid="lbl_InsertAngle" data-role="appery_label"
+                                                            class="lbl_InsertAngle  report_lbl_InsertAngle">
+                                                                Insert Angle
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td id="report_cell_angle_value" name="cell_angle_value" class="report_cell_angle_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <div name="lbl_angle_value" id="report_lbl_angle_value" dsid="lbl_angle_value" data-role="appery_label"
+                                                            class="lbl_angle_value  report_lbl_angle_value">
+                                                                40
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_21">
+                                                    <td id="report_cell_position" name="cell_position" class="report_cell_position"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            
+                                                            <div name="lbl_InsertPosition" id="report_lbl_InsertPosition" dsid="lbl_InsertPosition"
+                                                            data-role="appery_label" class="lbl_InsertPosition  report_lbl_InsertPosition">
+                                                                Insert Site
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td id="report_cell_position_value" name="cell_position_value" class="report_cell_position_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <div name="lbl_position_value" id="report_lbl_position_value" dsid="lbl_position_value"
+                                                            data-role="appery_label" class="lbl_position_value  report_lbl_position_value">
+                                                                L1~L2
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="report_main_grid_cell_content_grid_row_22">
+                                                    
+                                                    <td id="report_cell_pose" name="cell_pose" class="report_cell_pose" colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            
+                                                            <div name="lbl_PatientPose" id="report_lbl_PatientPose" dsid="lbl_PatientPose" data-role="appery_label"
+                                                            class="lbl_PatientPose  report_lbl_PatientPose">
+                                                                Patient Pose
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td id="report_cell_pose_value" name="cell_pose_value" class="report_cell_pose_value"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <div name="lbl_pose_value" id="report_lbl_pose_value" dsid="lbl_pose_value" data-role="appery_label"
+                                                            class="lbl_pose_value  report_lbl_pose_value">
+                                                                sitting
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <a data-role="button" name="btn_ok" dsid="btn_ok" class="report_btn_ok" id="report_btn_ok"
+                                        data-corners="true" data-icon="check" data-iconpos="left" x-apple-data-detectors="false"
+                                        data-mini="false" data-theme="a" tabindex="1">
+                                        Confirm
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- rim_footer -->
+            <div data-role="footer" data-position="fixed" class="rim_footer  report_rim_footer"
+            name="rim_footer" dsid="rim_footer" id="report_rim_footer" data-theme="a">
+                <h4  dsid="rim_footer">Copyright 2020. RIMSCIENCE CO. Ltd. All right reserved.</h4>
+            </div>
+        </div>
+    </body>
+
+</html>

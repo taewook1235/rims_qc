@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bluetooth</title>
+    <script>
+        window.onload = function() {
+        
+                class VETPIA {
+
+                    constructor() {
+                    this.device = null;
+                    this.onDisconnected = this.onDisconnected.bind(this);
+                    }
+
+                    request() {
+                    let options = {
+                        "filters": [{
+                        "name": "CHIPSEN"
+                        }],
+                        "optionalServices": [0xFF02]
+                    };
+                    return navigator.bluetooth.requestDevice(options)
+                    .then(device => {
+                        this.device = device;
+                        this.device.addEventListener('gattserverdisconnected', this.onDisconnected);
+                    });
+                    }
+
+                    connect() {
+                    if (!this.device) {
+                        return Promise.reject('Device is not connected.');
+                    }
+                    return this.device.gatt.connect();
+                    }
+
+                    readColor() {
+                    return this.device.gatt.getPrimaryService(0xFF02)
+                    .then(service => service.getCharacteristic(0xFFFC))
+                    .then(characteristic => characteristic.readValue());
+                    }
+
+                    writeColor(data) {
+                    return this.device.gatt.getPrimaryService(0xFF02)
+                    .then(service => service.getCharacteristic(0xFFFC))
+                    .then(characteristic => characteristic.writeValue(data));
+                    }
+
+                    disconnect() {
+                    if (!this.device) {
+                        return Promise.reject('Device is not connected.');
+                    }
+                    return this.device.gatt.disconnect();
+                    }
+
+                    onDisconnected() {
+                    console.log('Device is disconnected.');
+                    }
+                }
+
+                var vetpia = new VETPIA();
+
+                document.querySelector('#scan').addEventListener('click', event => {
+                    
+                    vetpia.request()
+                    .then(_ => vetpia.connect())
+                    .then(_ => { /* Do something with cHIPSEN... */
+                        document.querySelector('#result').innerHTML = "hello";
+                    })
+                    .catch(error => { document.querySelector('#result').innerHTML = "No devices"; });
+                });
+            }
+    </script>
+</head>
+<body>
+    <div id="result"></div>
+    <button id="scan">SCAN</button>
+</body>
+</html>

@@ -1,0 +1,185 @@
+
+/* Define default spinner */
+.ui-icon-loading {
+	background: url("../libs/jquerymobile/1.4.5/images/ajax-loader.gif") repeat scroll 0 0 / 46px 46px transparent!important;
+}
+/* main_navbar */
+.main_main_navbar {
+
+}
+.main_main_navbar .ui-grid-a .ui-block-a {
+	clear:none;
+}
+.ui-footer .main_main_navbar ul li:last-child a {
+	margin-right: 1px !important;
+}
+.ui-header .main_main_navbar ul li:last-child a {
+	margin-right: -1px !important;
+}
+.main_main_navbar ul.ui-grid-duo li:nth-child(even) a {
+	margin-right: 1px !important;
+}
+/* rim_container */
+.ui-content.main_rim_container {
+	padding: 0px 0px 0px 0px;
+}
+/* mobileworkarea_10*/
+.main_mobileworkarea_10 {
+	background-color: transparent;
+	padding: 0px;
+}
+/* main_grid */
+.main_main_grid {
+	height: auto;
+	width:800px;
+	margin: 50px 240px 0px 240px;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.main_main_grid_wrapper {
+
+}
+.main_main_grid > tr > td {
+	vertical-align: top;
+}
+.main_main_grid_row_0, .main_main_grid_row_0 > td {
+	height: 30px
+}
+/* main_grid_cell_input */
+.main_main_grid_cell_input {
+	height:30px !important;
+	width:auto;
+	padding: 40px 50px 50px 50px;
+	background-color: #22293b;
+	border-color: #f0f0f0; border-width: 2px; border-style: solid;
+}
+.main_main_grid_cell_input > .cell-wrapper {
+	padding: 0;
+	margin: 0;
+}
+/* main_title */
+.main_main_title {
+	text-decoration: none; font-weight: bold; text-align: center; font-family: Helvetica; font-size: 26px;
+	margin: 0px 0px 40px 0px;
+	word-wrap: break-word;
+	white-space: normal;
+}
+/* lbl_doctorname */
+.main_lbl_doctorname {
+	text-decoration: none; font-weight: bold; text-align: left; font-family: Helvetica; font-size: 18px;
+	margin: 0px 0px 10px 0px;
+	word-wrap: break-word;
+	white-space: normal;
+}
+/* input_doctorname */
+.main_input_doctorname {
+	margin: 0px 0px 0px 0px;
+}
+/* lbl_hospitalname */
+.main_lbl_hospitalname {
+	text-decoration: none; font-weight: bold; text-align: left; font-family: Helvetica; font-size: 18px;
+	margin: 30px 0px 10px 0px;
+	word-wrap: break-word;
+	white-space: normal;
+}
+/* input_hospitalname */
+.main_input_hospitalname {
+	margin: 0px 0px 0px 0px;
+}
+/* lbl_depart */
+.main_lbl_depart {
+	text-decoration: none; font-weight: bold; text-align: left; font-family: Helvetica; font-size: 18px;
+	margin: 30px 0px 10px 0px;
+	word-wrap: break-word;
+	white-space: normal;
+}
+/* input_depart */
+.main_input_depart {
+	margin: 0px 0px 0px 0px;
+}
+/* main_grid_cell_btn */
+.main_main_grid_cell_btn {
+	height: auto;
+	width:100%;
+	margin: 40px 0px 0px 0px;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.main_main_grid_cell_btn_wrapper {
+
+}
+.main_main_grid_cell_btn > tr > td {
+	vertical-align: top;
+}
+.main_main_grid_cell_btn_row_0, .main_main_grid_cell_btn_row_0 > td {
+	height: 30px
+}
+/* main_grid_cell_btn_cancel */
+.main_main_grid_cell_btn_cancel {
+	height:30px !important;
+	width:auto;
+	padding: 0px 5px 0px 5px;
+	background-color: #22293b;
+}
+.main_main_grid_cell_btn_cancel > .cell-wrapper {
+	padding: 0;
+	margin: 0;
+}
+/* btn_doctor_con */
+#main_btn_doctor_con {
+
+}
+.ui-btn.main_btn_doctor_con {
+	margin: 0px 0px 0px 0px;
+}
+/* main_grid_cell_btn_con */
+.main_main_grid_cell_btn_con {
+	height:30px !important;
+	width:auto;
+	padding: 0px 5px 0px 5px;
+	background-color: #22293b;
+}
+.main_main_grid_cell_btn_con > .cell-wrapper {
+	padding: 0;
+	margin: 0;
+}
+/* btn_doctor_cancel */
+#main_btn_doctor_cancel {
+
+}
+.ui-btn.main_btn_doctor_cancel {
+	margin: 0px 0px 0px 0px;
+}
+/* doc_popup */
+.main_doc_popup {
+	width: 400px; height: 200px;
+}
+div.main_doc_popup {
+	max-height: 100vh;
+	box-sizing: border-box;
+}
+div.main_doc_popup .ui-popup-content-wrapper {
+	width:100%;
+	height:100%;
+	max-height: 99vh;
+	overflow:auto;
+	box-sizing: border-box;
+}
+/* pop_lbl_doctorname */
+.main_pop_lbl_doctorname {
+	text-decoration: none; font-weight: normal; font-style: italic; text-align: center; font-family: Helvetica; font-size: 18px;
+	margin: 0px 0px 0px 0px;
+	word-wrap: break-word;
+	white-space: normal;
+}
+/* mobilelabel_13 */
+.main_mobilelabel_13 {
+	text-decoration: none; font-weight: normal; font-style: italic; text-align: left; font-family: Helvetica; font-size: 16px;
+	margin: 4px 0px 4px 0px;
+	word-wrap: break-word;
+	white-space: normal;
+}
+/* rim_footer */
+.main_rim_footer {
+	min-height:38px;
+}

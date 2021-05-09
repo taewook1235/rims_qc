@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>
+            before
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, viewport-fit=cover">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready data:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+        <link href="../css/theme/jqm/jqm.css" rel="stylesheet" />
+        <link href="../css/theme/rim/rim.css" rel="stylesheet" />
+        <link href="../libs/jquerymobile/1.4.5/jquery.mobile.structure-1.4.5.css" rel="stylesheet"/>
+        <script type="text/javascript" src="../libs/underscore/underscore.js">
+        </script>
+        <script type="text/javascript" src="../libs/jquery/jquery-2.1.1.js">
+        </script>
+        <script type="text/javascript" src="../libs/jquery/jquery-ajaxTransport.js">
+        </script>
+        <script type="text/javascript">
+            $(document).bind("mobileinit", function() {
+                if (navigator.userAgent.toLowerCase().indexOf("android") != -1) {
+                    $.mobile.defaultPageTransition = 'none';
+                    $.mobile.defaultDialogTransition = 'none';
+                } else if (navigator.userAgent.toLowerCase().indexOf("msie") != -1) {
+                    $.mobile.allowCrossDomainPages = true;
+                    $.support.cors = true;
+                } else if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
+                    $.mobile.hashListeningEnabled = false;
+                }
+            });
+        </script>
+        <script type="text/javascript" src="../libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.js">
+        </script>
+        <script type="text/javascript" src="../libs/apperyio/mobilebase.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/contexts.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/appery.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/component-manager.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/mapping-impl.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/entity-api.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/storage-api.js">
+        </script>
+        <script type="text/javascript" src="../cordova.js">
+        </script>
+        <link href="../libs/apperyio/mobilebase.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../js/services/model.js">
+        </script>
+        <script type="text/javascript" src="../js/canvasjs.js">
+        </script>
+        <script type="text/javascript" src="../js/storage.js">
+        </script>
+    </head>
+    
+    <body>
+        <script language="JavaScript" type="text/javascript">
+        </script>
+        <div data-role="page" style="min-height:800px;" dsid="before" id="before" class="type-interior"
+        data-theme="a">
+            <!-- rim_header -->
+            <div data-role="header" data-position="fixed" data-add-back-btn="false" data-back-btn-text="Back"
+            data-theme="a" name="rim_header" id="before_rim_header" class="rim_header  before_rim_header">
+                            <a data-theme="a" data-icon="home" id="start_navbar_home_item" dsid="navbar_home_item" style="text-align=lrft,margin-top:5px"
+                    name="navbar_home_item" >
+                </a>
+                <h1 dsid="rim_header">
+                    VETPIA
+                </h1>
+                <!-- main_navbar -->
+                <div data-role="navbar" id="before_main_navbar" name="main_navbar" dsid="main_navbar"
+                class="main_navbar  before_main_navbar" data-theme="a" style="position: relative;" data-iconpos="left">
+                    <ul>
+                        <!-- navbar_home_item -->
+                        <li>
+                            <a data-theme="a" data-icon="home" id="before_navbar_home_item" dsid="navbar_home_item"
+                            name="navbar_home_item" class="navbar_item_text">
+                            HOME
+                            </a>
+                        </li>
+                        <!-- navbar_before_item -->
+                        <li>
+                            <a data-theme="a" data-icon="carat-l" id="before_navbar_before_item" dsid="navbar_before_item"
+                            name="navbar_before_item" class="navbar_item_text">
+                            PRE-OPERATION
+                            </a>
+                        </li>
+                        <!-- navbar_start_item -->
+                        <li>
+                            <a data-theme="a" data-icon="carat-u" id="before_navbar_start_item" dsid="navbar_start_item"
+                            name="navbar_start_item" class="navbar_item_text">
+                            ON-OPERATION
+                            </a>
+                        </li>
+                        <!-- navbar_after_item -->
+                        <li>
+                            <a data-theme="a" data-icon="carat-r" id="before_navbar_after_item" dsid="navbar_after_item"
+                            name="navbar_after_item" class="navbar_item_text">
+                            POST-OPERATION
+                            </a>
+                        </li>
+                        <!-- navbar_report_item -->
+                        <li>
+                            <a data-theme="a" data-icon="edit" id="before_navbar_report_item" dsid="navbar_report_item"
+                            name="navbar_report_item" class="navbar_item_text">
+                            REPORT
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- rim_container -->
+            <div data-role="content" id="before_rim_container" name="rim_container" class="rim_container  before_rim_container ui-content"
+            dsid="rim_container" data-theme="a">
+                <link href="before.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="before.js">
+                </script>
+                <!-- mobileworkarea_10 -->
+                <div class="before_mobileworkarea_10 before_mobileworkarea_10">
+                    <!-- main_grid -->
+                    <div class="before_main_grid_wrapper" data-wrapper-for="main_grid">
+                        <table id="before_main_grid" class="main_grid  before_main_grid" dsid="main_grid"
+                        name="main_grid" cellpadding=0 cellspacing=0>
+                            <col style="width:auto;" />
+                            <tr class="before_main_grid_row_0">
+                                <!-- main_grid_cell_input -->
+                                <td id="before_main_grid_cell_input" name="main_grid_cell_input" class="before_main_grid_cell_input"
+                                colspan=1 rowspan=1>
+                                    <div class="cell-wrapper">
+                                        <!-- main_title -->
+                                        <div name="main_title" id="before_main_title" dsid="main_title" data-role="appery_label"
+                                        class="main_title  before_main_title">
+                                            PRE-OPERATION
+                                        </div>
+                                        <!-- lbl_surgerynumber -->
+                                        <div name="lbl_surgerynumber" id="before_lbl_surgerynumber" dsid="lbl_surgerynumber"
+                                        data-role="appery_label" class="lbl_surgerynumber  before_lbl_surgerynumber">
+                                            Operation Number  <span style="margin-left:410px;font-size:14px;color:orange;"> (*) Input Required </span>
+                                        </div>
+                                        <!-- input_surgerynumber -->
+                                        <div data-role="fieldcontain" class="before_input_surgerynumber ">
+                                            <input type="text" name="input_surgerynumber" dsid="input_surgerynumber" 
+                                            placeholder="" id="before_input_surgerynumber" multiple data-theme="a"
+                                            class="input_surgerynumber  before_input_surgerynumber" disabled="true" />
+                                        </div>
+                                        <!-- lbl_species -->
+                                        <div name="lbl_species" id="before_lbl_species" dsid="lbl_species" data-role="appery_label"
+                                        class="lbl_species  before_lbl_species">
+                                            Species
+                                        </div>
+                                        <!-- sel_species -->
+                                        <div data-role="fieldcontain" class="before_sel_species sel_species">
+                                            <select name="sel_species" id="before_sel_species" dsid="sel_species" data-theme="a"
+                                            data-role="appery_selectmenu" data-inline="false" data-mini="false" data-icon="arrow-d"
+                                            data-iconpos="right" data-native-menu="false" tabindex="1" appery-class="before_sel_species">
+                                                <option id="before_sel_species-0" value="dog" reRender="sel_species" dsid="sel_species-0"
+                                                selected="selected">
+                                                    Dog
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <!-- lbl_subspecies -->
+                                        <div name="lbl_subspecies" id="before_lbl_subspecies" dsid="lbl_subspecies" data-role="appery_label"
+                                        class="lbl_subspecies  before_lbl_subspecies">
+                                            Breeds
+                                        </div>
+                                        <!-- sel_subspecies -->
+                                        <div data-role="fieldcontain" class="before_sel_subspecies sel_subspecies">
+                                            <select name="sel_subspecies" id="before_sel_subspecies" dsid="sel_subspecies" data-theme="a"
+                                            data-role="appery_selectmenu" data-inline="false" data-mini="false" data-icon="arrow-d"
+                                            data-iconpos="right" data-native-menu="false" tabindex="2" appery-class="before_sel_subspecies">
+                                                <option id="before_sel_subspecies-0" value="labrador" reRender="sel_subspecies" dsid="sel_subspecies-0"
+                                                selected="selected">
+                                                    Retriever(Labrador)
+                                                </option>
+                                                <option id="before_sel_subspecies-1" value="shephered" reRender="sel_subspecies" dsid="sel_subspecies-1">
+                                                    German Shephered  
+                                                </option>
+                                                <option id="before_sel_subspecies-2" value="golden" reRender="sel_subspecies" dsid="sel_subspecies-2">
+                                                    Retriever(Golden)
+                                                </option>
+                                                <option id="before_sel_subspecies-3" value="f_bulldog" reRender="sel_subspecies" dsid="sel_subspecies-3">
+                                                    French Bulldog
+                                                </option>
+                                                <option id="before_sel_subspecies-4" value="bulldog" reRender="sel_subspecies" dsid="sel_subspecies-4">
+                                                    Bulldog
+                                                </option>
+                                                <option id="before_sel_subspecies-5" value="poodle" reRender="sel_subspecies" dsid="sel_subspecies-5">
+                                                    Poodle
+                                                </option>
+                                                <option id="before_sel_subspecies-6" value="beagle" reRender="sel_subspecies" dsid="sel_subspecies-6">
+                                                    Beagle
+                                                </option>
+                                                <option id="before_sel_subspecies-7" value="rottweiler" reRender="sel_subspecies" dsid="sel_subspecies-7">
+                                                    Rottweiler
+                                                </option>
+                                                <option id="before_sel_subspecies-8" value="pointer" reRender="sel_subspecies" dsid="sel_subspecies-8">
+                                                    Pointer(German Shorthaired)
+                                                </option>
+                                                <option id="before_sel_subspecies-9" value="corgi" reRender="sel_subspecies" dsid="sel_subspecies-9">
+                                                    Pembroke Welsh Corgi
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <!-- lbl_patientname -->
+                                        <div name="lbl_patientname" id="before_lbl_patientname" dsid="lbl_patientname" data-role="appery_label"
+                                        class="lbl_patientname  before_lbl_patientname">
+                                            Patient Name (*)
+                                        </div>
+                                        <!-- input_patientname -->
+                                        <div data-role="fieldcontain" class="before_input_patientname ">
+                                            <input type="text" name="input_patientname" dsid="input_patientname" value="" placeholder=""
+                                            id="before_input_patientname" tabindex="3" multiple data-theme="a" class="input_patientname  before_input_patientname"
+                                            />
+                                        </div>
+                                        <!-- lbl_patientage -->
+                                        <div name="lbl_patientage" id="before_lbl_patientage" dsid="lbl_patientage" data-role="appery_label"
+                                        class="lbl_patientage  before_lbl_patientage">
+                                            Patient Age (*)
+                                            <fieldset data-role="controlgroup" data-type="horizontal" data-theme="a" style="margin-left:20px;">
+                                                <!-- radio_gendermale -->
+                                                <span dsid="radio_year" class="before_radio_gendermale" name="radio_year">
+                                                    <input type="radio" name="radiogroup_age" id="before_radio_year" style='display:none'
+                                                    checked="checked"  value="year" />
+                                                    <label id="before_radio_year_label" for="before_radio_year" tabindex="4">
+                                                        Year
+                                                    </label>
+                                                </span>
+                                                <!-- radio_genderfemale -->
+                                                <span dsid="radio_month" class="before_radio_genderfemale" name="radio_month">
+                                                    <input type="radio" name="radiogroup_age" id="before_radio_month" style='display:none'
+                                                    value="month" />
+                                                    <label id="before_radio_month_label" for="before_radio_month" tabindex="5">
+                                                        Month
+                                                    </label>
+                                                </span>
+                                            </fieldset>
+                                        </div>
+                                        <!-- input_patientage -->
+                                        <div data-role="fieldcontain" class="before_input_patientage ">
+                                            <input type="text" name="input_patientage" dsid="input_patientage" value="" placeholder=""
+                                            id="before_input_patientage" tabindex="6" multiple data-theme="a" class="input_patientage  before_input_patientage"
+                                            />
+                                        </div>
+                                        <!-- lbl_patientgender -->
+                                        <div name="lbl_patientgender" id="before_lbl_patientgender" dsid="lbl_patientgender"
+                                        data-role="appery_label" class="lbl_patientgender  before_lbl_patientgender">
+                                            Patient Sex
+                                        </div>
+                                        <!-- radiogroup_gender -->
+                                        <div data-role="fieldcontain" class="radiogroup_gender  before_radiogroup_gender"
+                                        id="before_radiogroup_gender" dsid="radiogroup_gender">
+                                            <fieldset data-role="controlgroup" data-type="horizontal" data-theme="a">
+                                                <!-- radio_gendermale -->
+                                                <span dsid="radio_gendermale" class="before_radio_gendermale" name="radio_gendermale">
+                                                    <input type="radio" name="radiogroup_gender" id="before_radio_gendermale" style='display:none'
+                                                    checked="checked"  value="male" />
+                                                    <label id="before_radio_gendermale_label" for="before_radio_gendermale" tabindex="7">
+                                                        Male
+                                                    </label>
+                                                </span>
+                                                <!-- radio_genderfemale -->
+                                                <span dsid="radio_genderfemale" class="before_radio_genderfemale" name="radio_genderfemale">
+                                                    <input type="radio" name="radiogroup_gender" id="before_radio_genderfemale" style='display:none'
+                                                    value="female" />
+                                                    <label id="before_radio_genderfemale_label" for="before_radio_genderfemale" tabindex="8">
+                                                        Female
+                                                    </label>
+                                                </span>
+                                            </fieldset>
+                                        </div>
+                                        <!-- lbl_patientweight -->
+                                        <div name="lbl_patientweight" id="before_lbl_patientweight" dsid="lbl_patientweight"
+                                        data-role="appery_label" class="lbl_patientweight  before_lbl_patientweight">
+                                            Patient Weight   
+                                            <fieldset data-role="controlgroup" data-type="horizontal" data-theme="a" style="margin-left:20px;">
+                                                <!-- radio_gendermale -->
+                                                <span dsid="radio_kg" class="before_radio_gendermale" name="radio_kg">
+                                                    <input type="radio" name="radiogroup_unit" id="before_radio_kg" style='display:none'
+                                                    checked="checked"  value="kg" />
+                                                    <label id="before_radio_kg_label" for="before_radio_kg" tabindex="9">
+                                                        KG
+                                                    </label>
+                                                </span>
+                                                <!-- radio_genderfemale -->
+                                                <span dsid="radio_lb" class="before_radio_genderfemale" name="radio_lb">
+                                                    <input type="radio" name="radiogroup_unit" id="before_radio_lb" style='display:none'
+                                                    value="female" />
+                                                    <label id="before_radio_lb_label" for="before_radio_lb" tabindex="10">
+                                                        LB
+                                                    </label>
+                                                </span>
+                                            </fieldset>
+                                        </div>
+                                        <!-- slide_patientweight -->
+                                        <div data-role="fieldcontain" class="before_slide_patientweight ">
+                                            <input type="range" reRender="slide_patientweight" name="slide_patientweight" dsid="slide_patientweight"
+                                            id="before_slide_patientweight" data-theme="a" data-track-theme="a" value="1" min="1"
+                                            max="100" tabindex="11" class="slide_patientweight  before_slide_patientweight" data-mini="false" data-show-value="true" data-popup-enabled="true"
+                                            />
+                                        </div>
+                                        <div name="lbl_needlegauge" id="before_lbl_needlegauge" dsid="lbl_needlegauge" data-role="appery_label"
+                                        class="lbl_needlegauge  before_lbl_needlegauge">
+                                            Needle Gauge
+                                        </div>
+                                        <!-- radiogroup_needlegauge -->
+                                        <div data-role="fieldcontain" class="radiogroup_needlegauge  before_radiogroup_needlegauge"
+                                        id="before_radiogroup_needlegauge" dsid="radiogroup_needlegauge">
+                                            <fieldset data-role="controlgroup" data-type="horizontal" data-theme="a">
+                                                <!-- radio_18g -->
+                                                <span dsid="radio_18g" class="before_radio_18g" name="radio_18g">
+                                                    <input type="radio" name="radiogroup_needlegauge" id="before_radio_18g" style='display:none'
+                                                    checked="checked"  value="18g" />
+                                                    <label id="before_radio_18g_label" for="before_radio_18g" tabindex="12">
+                                                        18 G
+                                                    </label>
+                                                </span>
+                                                
+                                                <span dsid="radio_20g" class="before_radio_20g" name="radio_20g">
+                                                    <input type="radio" name="radiogroup_needlegauge" id="before_radio_20g" style='display:none'
+                                                    value="20g" />
+                                                    <label id="before_radio_20g_label" for="before_radio_20g" tabindex="13">
+                                                        20 G
+                                                    </label>
+                                                </span>
+                                                
+                                                <!-- radio_20g -->
+                                                <span dsid="radio_22g" class="before_radio_22g" name="radio_22g">
+                                                    <input type="radio" name="radiogroup_needlegauge" id="before_radio_22g" style='display:none'
+                                                    value="22g" />
+                                                    <label id="before_radio_22g_label" for="before_radio_22g" tabindex="14">
+                                                        22 G
+                                                    </label>
+                                                </span>
+
+                                                <span dsid="radio_24g" class="before_radio_24g" name="radio_24g">
+                                                    <input type="radio" name="radiogroup_needlegauge" id="before_radio_24g" style='display:none'
+                                                    value="24g" />
+                                                    <label id="before_radio_24g_label" for="before_radio_24g" tabindex="15">
+                                                        24 G
+                                                    </label>
+                                                </span>
+                                                
+                                            </fieldset>
+                                        </div>
+                                        <!-- lbl_needlelength -->
+                                        <div name="lbl_needlelength" id="before_lbl_needlelength" dsid="lbl_needlelength"
+                                        data-role="appery_label" class="lbl_needlelength  before_lbl_needlelength">
+                                            Needle Length
+                                        </div>
+                                        <!-- sel_needlelength -->
+                                        <div data-role="fieldcontain" class="before_sel_needlelength sel_needlelength">
+                                            <select name="sel_needlelength" id="before_sel_needlelength" dsid="sel_needlelength"
+                                            data-theme="a" data-role="appery_selectmenu" data-inline="false" data-mini="false"
+                                            data-icon="arrow-d" data-iconpos="right" data-native-menu="false" tabindex="16" appery-class="before_sel_needlelength">
+                                                <option id="before_sel_needlelength-0" value="50" reRender="sel_needlelength"
+                                                dsid="sel_needlelength-0" >
+                                                    50mm
+                                                </option>
+                                                <option id="before_sel_needlelength-1" value="55" reRender="sel_needlelength"
+                                                dsid="sel_needlelength-1">
+                                                    55mm
+                                                </option>
+                                                <option id="before_sel_needlelength-2" value="60" reRender="sel_needlelength"
+                                                dsid="sel_needlelength-2" selected="selected">
+                                                    60mm
+                                                </option>
+                                                <option id="before_sel_needlelength-3" value="80" reRender="sel_needlelength"
+                                                dsid="sel_needlelength-3">
+                                                    80mm
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <!-- main_grid_cell_btn -->
+                                        <div class="before_main_grid_cell_btn_wrapper" data-wrapper-for="main_grid_cell_btn">
+                                            <table id="before_main_grid_cell_btn" class="before_main_grid_cell_btn" dsid="main_grid_cell_btn"
+                                            name="main_grid_cell_btn" cellpadding=0 cellspacing=0>
+                                                <col style="width:auto;" />
+                                                <col style="width:auto;" />
+                                                <tr class="before_main_grid_cell_btn_row_0">
+                                                    <!-- main_grid_cell_btn_cancel -->
+                                                    <td id="before_main_grid_cell_btn_cancel" name="main_grid_cell_btn_cancel" class="before_main_grid_cell_btn_cancel"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- btn_doctor_con --><!--
+                                                            --><a data-role="button" name="btn_doctor_con" dsid="btn_doctor_con" class="btn_doctor_con  before_btn_doctor_con"
+                                                            id="before_btn_doctor_con" data-corners="true" data-icon="carat-d" data-iconpos="left"
+                                                            x-apple-data-detectors="false" data-mini="false" data-theme="a" tabindex="17">
+                                                            Confirm
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <!-- main_grid_cell_btn_con -->
+                                                    <td id="before_main_grid_cell_btn_con" name="main_grid_cell_btn_con" class="before_main_grid_cell_btn_con"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- btn_doctor_cancel --><!--
+                                                            --><a data-role="button" name="btn_doctor_cancel" dsid="btn_doctor_cancel" class="btn_doctor_cancel  before_btn_doctor_cancel"
+                                                            id="before_btn_doctor_cancel" data-corners="true" data-icon="delete" data-iconpos="left"
+                                                            x-apple-data-detectors="false" data-mini="false" data-theme="a" tabindex="18">
+                                                            Cancel
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- rim_footer -->
+            <div data-role="footer" data-position="fixed" class="rim_footer  before_rim_footer"
+            name="rim_footer" dsid="rim_footer" id="before_rim_footer" data-theme="a">
+                <h4  dsid="rim_footer">Copyright 2020. RIMSCIENCE CO. Ltd. All right reserved.</h4>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>
+            after
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, viewport-fit=cover">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready data:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+        <link href="../css/theme/jqm/jqm.css" rel="stylesheet" />
+        <link href="../css/theme/rim/rim.css" rel="stylesheet" />
+        <link href="../libs/jquerymobile/1.4.5/jquery.mobile.structure-1.4.5.css" rel="stylesheet"/>
+        <script type="text/javascript" src="../libs/underscore/underscore.js">
+        </script>
+        <script type="text/javascript" src="../libs/jquery/jquery-2.1.1.js">
+        </script>
+        <script type="text/javascript" src="../libs/jquery/jquery-ajaxTransport.js">
+        </script>
+        <script type="text/javascript">
+            $(document).bind("mobileinit", function() {
+                if (navigator.userAgent.toLowerCase().indexOf("android") != -1) {
+                    $.mobile.defaultPageTransition = 'none';
+                    $.mobile.defaultDialogTransition = 'none';
+                } else if (navigator.userAgent.toLowerCase().indexOf("msie") != -1) {
+                    $.mobile.allowCrossDomainPages = true;
+                    $.support.cors = true;
+                } else if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
+                    $.mobile.hashListeningEnabled = false;
+                }
+            });
+        </script>
+        <script type="text/javascript" src="../libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.js">
+        </script>
+        <script type="text/javascript" src="../libs/apperyio/mobilebase.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/contexts.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/appery.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/component-manager.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/mapping-impl.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/entity-api.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/storage-api.js">
+        </script>
+        <script type="text/javascript" src="../cordova.js">
+        </script>
+        <link href="../libs/apperyio/mobilebase.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../js/services/model.js">
+        </script>
+        <script type="text/javascript" src="../js/canvasjs.js">
+        </script>
+        <script type="text/javascript" src="../js/storage.js">
+        </script>
+    </head>
+    
+    <body>
+        <script language="JavaScript" type="text/javascript">
+        </script>
+        <div data-role="page" style="min-height:800px;" dsid="after" id="after" class="type-interior"
+        data-theme="a">
+            <div data-role="header" data-position="fixed" data-add-back-btn="false" data-back-btn-text="Back"
+            data-theme="a" name="rim_header" id="after_rim_header" class="rim_header  after_rim_header">
+                <h1 dsid="rim_header">
+                    VETPIA
+                </h1>
+                <div data-role="navbar" id="after_main_navbar" name="main_navbar" dsid="main_navbar"
+                class="main_navbar  after_main_navbar" data-theme="a" style="position: relative;" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a data-theme="a" data-icon="home" id="after_navbar_home_item" dsid="navbar_home_item"
+                            name="navbar_home_item" style="font-size: 1em;">
+                            HOME
+                            </a>
+                        </li>
+                        <li>
+                            <a data-theme="a" data-icon="carat-l" id="after_navbar_before_item" dsid="navbar_before_item"
+                            name="navbar_before_item" style="font-size: 1em;">
+                            PRE-OPERATION
+                            </a>
+                        </li>
+                        <li>
+                            <a data-theme="a" data-icon="carat-u" id="after_navbar_start_item" dsid="navbar_start_item"
+                            name="navbar_start_item" style="font-size: 1em;">
+                            ON-OPERATION
+                            </a>
+                        </li>
+                        <li>
+                            <a data-theme="a" data-icon="carat-r" id="after_navbar_after_item" dsid="navbar_after_item"
+                            name="navbar_after_item" style="font-size: 1em;">
+                            POST-OPERATION
+                            </a>
+                        </li>
+                        <li>
+                            <a data-theme="a" data-icon="edit" id="after_navbar_report_item" dsid="navbar_report_item"
+                            name="navbar_report_item" style="font-size: 1em;">
+                            REPORT
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content" id="after_rim_container" name="rim_container" class="rim_container  after_rim_container ui-content"
+            dsid="rim_container" data-theme="a">
+                <link href="after.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="after.js">
+                </script>
+                <div class="after_mobileworkarea_10 after_mobileworkarea_10">
+                    <div class="after_main_grid_wrapper" data-wrapper-for="main_grid">
+                        <table id="after_main_grid" class="main_grid  after_main_grid" dsid="main_grid"
+                        name="main_grid" cellpadding=0 cellspacing=0>
+                            <col style="width:auto;" />
+                            <tr class="after_main_grid_row_0">
+                                <!-- main_grid_cell_input -->
+                                <td id="after_main_grid_cell_input" name="main_grid_cell_input" class="after_main_grid_cell_input"
+                                colspan=1 rowspan=1>
+                                    <div class="cell-wrapper">
+                                        <!-- main_title -->
+                                        <div name="main_title" id="after_main_title" dsid="main_title" data-role="appery_label"
+                                        class="main_title  after_main_title">
+                                        POST-OPERATION
+                                        </div>
+                                        <!-- lbl_insertlength -->
+                                        <div name="lbl_insertlength" id="after_lbl_insertlength" dsid="lbl_insertlength"
+                                        data-role="appery_label" class="lbl_insertlength  after_lbl_insertlength" >
+                                            Insert Length (You can't change this value) <span style="margin-left:190px;font-size:14px;color:orange;"> (*) Input Required </span>
+                                        </div>
+                                        <!-- input_insertlength -->
+                                        <div data-role="fieldcontain" class="after_input_insertlength ">
+                                            <input type="text" name="input_insertlength" dsid="input_insertlength" value=""
+                                            placeholder="" id="after_input_insertlength" tabindex="0" multiple data-theme="a"
+                                            class="input_insertlength  after_input_insertlength"  disabled = "disabled"/>
+                                        </div>
+                                        <!-- lbl_insertangle -->
+                                        <div name="lbl_insertangle" id="after_lbl_insertangle" dsid="lbl_insertangle" data-role="appery_label"
+                                        class="lbl_insertangle  after_lbl_insertangle">
+                                            Insert Angle (Optional)
+                                        </div>
+                                        <!-- slide_insertangle -->
+                                        <div data-role="fieldcontain" class="after_slide_insertangle ">
+                                            <input type="range" reRender="slide_insertangle" name="slide_insertangle" dsid="slide_insertangle"
+                                            id="after_slide_insertangle" data-theme="a" data-track-theme="a" value="20" min="20"
+                                            max="180" tabindex="1" class="slide_insertangle  after_slide_insertangle" data-mini="false" data-show-value="true" data-popup-enabled="true"
+                                            />
+                                        </div>
+                                        <!-- lbl_insertposition -->
+                                        <div name="lbl_insertposition" id="after_lbl_insertposition" dsid="lbl_insertposition"
+                                        data-role="appery_label" class="lbl_insertposition  after_lbl_insertposition">
+                                            Insertion Site (*)
+                                        </div>
+                                        <!-- sel_insertposition -->
+                                        <div data-role="fieldcontain" class="after_input_insertposition ">
+                                            <input type="text" name="input_insertposition" dsid="input_insertposition" value=""
+                                            placeholder="" id="after_input_insertposition" tabindex="2" multiple data-theme="a"
+                                            class="input_insertposition  after_input_insertposition" />
+                                        </div>
+                                                                            
+                                        <!-- lbl_patientpose -->
+                                        <div name="lbl_patientpose" id="after_lbl_patientpose" dsid="lbl_patientpose" data-role="appery_label"
+                                        class="lbl_patientpose  after_lbl_patientpose">
+                                            Patient Position (*)
+                                        </div>
+                                        <!-- sel_patientpose -->
+                                        <div data-role="fieldcontain" class="after_sel_patientpose sel_patientpose">
+                                            <select name="sel_patientpose" id="after_sel_patientpose" dsid="sel_patientpose"
+                                            data-theme="a" data-role="appery_selectmenu" data-inline="false" data-mini="false"
+                                            data-icon="arrow-d" data-iconpos="right" data-native-menu="false" tabindex="3" appery-class="after_sel_patientpose">
+                                                <option id="after_sel_patientpose-0" value="IateralDecubitus" reRender="sel_patientpose"
+                                                dsid="sel_patientpose-0" selected="selected">
+                                                    Iateral Decubitus
+                                                </option>
+                                                <option id="after_sel_patientpose-1" value="Sitting" reRender="sel_patientpose"
+                                                dsid="sel_patientpose-1">
+                                                    Sitting
+                                                </option>
+                                                <option id="after_sel_patientpose-2" value="etc" reRender="sel_patientpose"
+                                                dsid="sel_patientpose-2">
+                                                    ETC
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div name="lbl_remark" id="after_lbl_remark" dsid="input_remark"
+                                        data-role="appery_label" class="lbl_insertposition  after_lbl_insertposition">
+                                            Remark
+                                        </div>
+                                        <!-- sel_insertposition -->
+                                        <div data-role="fieldcontain" class="after_lbl_remark">
+                                            <textarea name="input_remark" dsid="input_remark"
+                                            placeholder="" id="input_remark" tabindex="4" data-theme="a"
+                                            class="textarea_remark" rows="8"></textarea>
+                                        </div>
+                                        <div class="after_main_grid_cell_btn_wrapper" data-wrapper-for="main_grid_cell_btn">
+                                            <table id="after_main_grid_cell_btn" class="after_main_grid_cell_btn" dsid="main_grid_cell_btn"
+                                            name="main_grid_cell_btn" cellpadding=0 cellspacing=0>
+                                                <col style="width:auto;" />
+                                                <col style="width:auto;" />
+                                                <tr class="after_main_grid_cell_btn_row_0">
+                                                    <!-- main_grid_cell_btn_cancel -->
+                                                    <td id="after_main_grid_cell_btn_cancel" name="main_grid_cell_btn_cancel" class="after_main_grid_cell_btn_cancel"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- btn_doctor_con --><!--
+                                                            --><a data-role="button" name="btn_doctor_con" dsid="btn_doctor_con" class="btn_doctor_con  after_btn_doctor_con"
+                                                            id="after_btn_doctor_con" data-corners="true" data-icon="carat-d" data-iconpos="left"
+                                                            x-apple-data-detectors="false" data-mini="false" data-theme="a" tabindex="5">
+                                                            Confirm
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <!-- main_grid_cell_btn_con -->
+                                                    <td id="after_main_grid_cell_btn_con" name="main_grid_cell_btn_con" class="after_main_grid_cell_btn_con"
+                                                    colspan=1 rowspan=1>
+                                                        <div class="cell-wrapper">
+                                                            <!-- btn_doctor_cancel --><!--
+                                                            --><a data-role="button" name="btn_doctor_cancel" dsid="btn_doctor_cancel" class="btn_doctor_cancel  after_btn_doctor_cancel"
+                                                            id="after_btn_doctor_cancel" data-corners="true" data-icon="delete" data-iconpos="left"
+                                                            x-apple-data-detectors="false" data-mini="false" data-theme="a" tabindex="6">
+                                                            Cancel
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- rim_footer -->
+            <div data-role="footer" data-position="fixed" class="rim_footer  after_rim_footer"
+            name="rim_footer" dsid="rim_footer" id="after_rim_footer" data-theme="a">
+                <h4  dsid="rim_footer">Copyright 2020. RIMSCIENCE CO. Ltd. All right reserved.</h4>
+            </div>
+        </div>
+    </body>
+
+</html>
