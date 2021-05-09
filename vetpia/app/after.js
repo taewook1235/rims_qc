@@ -241,8 +241,8 @@ $(document).off("pagecreate", "#after").on("pagecreate", "#after", function(even
 $(document).off("pageshow", "#after").on("pageshow", "#after", function(event, ui) {
             
     var arrNeedleLength = Data.dataPoints;
-    if ( arrNeedleLength == null){
-        
+    if ( (arrNeedleLength.length) < 2){
+
     }
     else {
         var arrLengLast = (arrNeedleLength.length)-1;

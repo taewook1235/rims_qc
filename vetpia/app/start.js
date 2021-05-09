@@ -54,7 +54,7 @@ var g_options = {
     axisY: { 
         title: "Force(gf)",
         minimum: 0,
-        maximum: 1500,
+        maximum: 2000,
         
     },
     width:645,
@@ -117,13 +117,14 @@ function updateData(positionArray,forceArray) {
     if(v_dataPoints[v_dataPoints.length-1]["x"]!=positionArray && typeof positionArray=="number")
         {
             v_dataPoints.push({ x: positionArray, y: forceArray});}
+            
         //console.log(v_dataPoints);
-    if(v_dataPoints.length>2) {
+  //  if(v_dataPoints.length>2) {
         $("#start_chartContainer").CanvasJSChart().render();
         $("#start_slide_needle").val(positionArray).slider("refresh");
         $("#n_length").text(length);
         $("#n_force").text(forceArray);
-    }
+   // }
     /*
     if((v_dataPoints[v_dataPoints.length-1].x<v_dataPoints[v_dataPoints.length-2].x) && back_flag == 0 ){
         back_flag = 1;
