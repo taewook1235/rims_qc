@@ -30,7 +30,7 @@ console.log( typeof buffer);
 console.log(buffer);
 
 */
-viewInfo("25");
+viewInfo("26");
 
 
 function listener(event) {
@@ -214,7 +214,16 @@ function start_js() {
             .catch(error => { viewInfo("<font color=#ff0000>" + error + "</font>")});
         });
         document.querySelector('#input_write').addEventListener('click', event => {
-            vetpia.writeDescripter();
+
+            let str1 =("RST\r\n");
+            var buffer = new ArrayBuffer();
+            
+            buffer = str2ab(str1);
+           // encoder.encode(str1);
+            const encoder = new TextEncoder('utf-8');
+            const userDescription = encoder.encode(str1);
+
+            vetpia.write(userDescription);
             
         });
     };
