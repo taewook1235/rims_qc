@@ -30,7 +30,7 @@ console.log( typeof buffer);
 console.log(buffer);
 
 */
-viewInfo("26");
+viewInfo("27");
 
 
 function listener(event) {
@@ -223,7 +223,7 @@ function start_js() {
             const encoder = new TextEncoder('utf-8');
             const userDescription = encoder.encode(str1);
 
-            vetpia.write(userDescription);
+            vetpia.writeData(userDescription);
             
         });
     };
