@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("13");
+viewInfo("15");
 
 
 function listener(event) {
