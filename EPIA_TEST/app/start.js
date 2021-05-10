@@ -264,7 +264,7 @@ function start_js() {
                 graphInterval = setInterval(function(){
                     vetpia.startNotifications(listener);
                     vetpia.stopNotifications(listener);
-                },100)
+                },200)
             })
             .catch(error => { viewInfo("<font color=#ff0000>" + error + "</font>")});
         });
