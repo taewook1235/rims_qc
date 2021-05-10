@@ -25,7 +25,7 @@ function str2ab(str) {
 
 
 
-viewInfo("-");
+viewInfo("M");
 viewTest("EPIA(VETPIA) TEST", 
 "EPIA(VETPIA) TEST <br>" );
 
@@ -189,14 +189,13 @@ function start_js() {
         let vetpia = new VETPIA();
         document.querySelector('#btn_start').addEventListener('click', event => {
 
-
-
             vetpia.request()
             .then(_ => vetpia.connect())
             .then(_ => { 
                 viewInfo("<font color=#00ff00>Device connected..</font>");
 
                 graphInterval = setInterval(function(){
+
                     vetpia.startNotifications(listener);
                     vetpia.stopNotifications(listener);
                 },300)
@@ -205,7 +204,8 @@ function start_js() {
         });
         document.querySelector('#input_write').addEventListener('click', event => {
 
-            let str1 =("RST\r\n");
+            //let str1 =("RST\r\n");
+            let str1 =("75 60 400\n");
             var buffer = new ArrayBuffer();
             
             buffer = str2ab(str1);
