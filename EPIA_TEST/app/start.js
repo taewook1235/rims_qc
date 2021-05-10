@@ -63,6 +63,10 @@ function listener(event) {
 
         document.querySelector("#device_data"). innerHTML =message1;
         document.querySelector("#data_info").innerHTML = "";
+
+            viewTest("검사모드 연결", 
+            "검사모드 시작시 모터가 뒤로 회전하며 리셋스위치를 누르면 다음단계로 넘어갑니다.<br><br>" );
+
     }
     else {
         let input_device = "";
@@ -310,6 +314,10 @@ function test_message(input_device){
     switch(input[0]){
         case 'T0':            
         document.getElementById("TEST1").className = "main_grid_top_2_run";
+        document.getElementById("TEST2").className = "main_grid_top_2";
+        document.getElementById("TEST3").className = "main_grid_top_2";
+        document.getElementById("TEST4").className = "main_grid_top_2";
+        document.getElementById("TEST5").className = "main_grid_top_2";
         viewTest("Limit Switch 검사", 
         "검사모드 시작시 모터가 뒤로 회전하며 리셋스위치를 누르면 다음단계로 넘어갑니다.<br><br>" +
         " <font color='red' size='5'>불량 기준 및 대처 방안 </font><br>" +
@@ -321,6 +329,9 @@ function test_message(input_device){
         case 'T1':            
         document.getElementById("TEST1").className = "main_grid_top_2_clear";
         document.getElementById("TEST2").className = "main_grid_top_2_run";
+        document.getElementById("TEST3").className = "main_grid_top_2";
+        document.getElementById("TEST4").className = "main_grid_top_2";
+        document.getElementById("TEST5").className = "main_grid_top_2";
         viewTest("버튼 검사", 
         "버튼을 아래 순서대로 누르고 결과(정상 동작시 괄호안에 O표시 됨)를 확인한다. <br><br>" +
         " 전진 버튼 : (" + input[5].substr(3,1) + ") <br>" + 
@@ -336,6 +347,8 @@ function test_message(input_device){
             document.getElementById("TEST1").className = "main_grid_top_2_clear";
             document.getElementById("TEST2").className = "main_grid_top_2_clear";
             document.getElementById("TEST3").className = "main_grid_top_2_run";
+            document.getElementById("TEST4").className = "main_grid_top_2";
+            document.getElementById("TEST5").className = "main_grid_top_2";
             viewTest("센서 검사", 
             "센서를 손으로 힘을 가해보며 값의 변화를 검사한다. 정상 동작시 전진버튼을 누르면 다음 단계로 넘어갑니다. <br><br>" +
             " force : ( " + input[1] + " ) [ gf ] <br><br>" +  
@@ -350,7 +363,8 @@ function test_message(input_device){
             document.getElementById("TEST1").className = "main_grid_top_2_clear";
             document.getElementById("TEST2").className = "main_grid_top_2_clear";
             document.getElementById("TEST3").className = "main_grid_top_2_clear";
-            document.getElementById("TEST4").className = "main_grid_top_2_run";           
+            document.getElementById("TEST4").className = "main_grid_top_2_run";  
+            document.getElementById("TEST5").className = "main_grid_top_2";         
             viewTest("모터 검사1", 
             "자동으로 모터가 회전하며 최대 행정거리까지 이동합니다. <br><br>" +
             " 이동거리 :  " + input[2] + "  [ mm ] <br>" +  
