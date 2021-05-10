@@ -23,6 +23,7 @@ function listener(event) {
     for (let i = 0; i < value.byteLength; i++) {
         tmpResult.push(value.getUint8(i));
     }
+    console.log(tmpResult);
     /*
     forceArray = getFloat(tmpResult.slice(2,6).reverse());
     positionArray = getFloat(tmpResult.slice(6,10).reverse());
