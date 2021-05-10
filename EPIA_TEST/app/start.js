@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("7");
+viewInfo("8");
 function listener(event) {
     const value = event.target.value;
     let tmpResult = [];
@@ -45,7 +45,13 @@ function listener(event) {
         document.querySelector("#device_data"). innerHTML =message1;
     }
     else {
-        document.querySelector("#device_data"). innerHTML = value;
+        let input_a = "";
+    for (let i = 0; i < value.byteLength; i++) {
+        input_a += String.fromCharCode(tmpResult[i]);
+        
+    }
+    document.querySelector("#device_data"). innerHTML =input_a;
+
     //   document.querySelector("#device_data"). innerHTML = value;
 
     }
