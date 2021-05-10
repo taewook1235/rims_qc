@@ -25,7 +25,7 @@ function str2ab(str) {
 
 
 
-viewInfo("27");
+viewInfo("-");
 
 
 function listener(event) {
@@ -210,11 +210,11 @@ function start_js() {
             vetpia.writeData(userDescription);
             
         });
-/*
+
         var input_device = "T4\t604.8\t29.288\t95230\tOOXXXX\tXXOO\t1200";
         test_message(input_device);
 
-*/
+
 
 
     };
@@ -342,24 +342,28 @@ function test_message(input_device){
     
             " <font color='red' size='5'>불량 기준 및 대처 방안 </font><br>" +
                     " 힘을 가해도 센서 값의 큰 변화가 없음 또는 5000gf 이상 <br>" +
-                    "&nbsp&nbsp ><font color='yellow'>센서 교체 </font> <br>" + 
+                    "&nbsp&nbsp > <font color='yellow'>센서 교체 </font> <br>" + 
                     " 변화는 있으나 센서에 힘을 가하지 않아도 2000gf 이상 <br>" +
-                    "&nbsp&nbsp ><font color='yellow'>센서 홀더 재결합 또는 교체 </font>");
+                    "&nbsp&nbsp > <font color='yellow'>센서 홀더 재결합 또는 교체 </font>");
                 break;
         case 'T3':
             document.getElementById("TEST1").className = "main_grid_top_2_clear";
             document.getElementById("TEST2").className = "main_grid_top_2_clear";
             document.getElementById("TEST3").className = "main_grid_top_2_clear";
             document.getElementById("TEST4").className = "main_grid_top_2_run";           
-            viewTest("센서 검사", 
-            "센서를 손으로 힘을 가해보며 값의 변화를 검사한다. 정상 동작시 전진버튼을 누르면 다음 단계로 넘어갑니다. <br><br>" +
-            " force : ( " + input[1] + " ) [ gf ] <br><br>" +  
+            viewTest("모터 검사1", 
+            "자동으로 모터가 회전하며 최대 행정거리까지 이동합니다. <br><br>" +
+            " 이동거리 :  " + input[2] + "  [ mm ] <br>" +  
+            " 이동시간 :  " + parseFloat(input[6])/20 + "  [ 초 ] <br><br>" +  
     
             " <font color='red' size='5'>불량 기준 및 대처 방안 </font><br>" +
-                    " 힘을 가해도 센서 값의 큰 변화가 없음 또는 5000gf 이상 <br>" +
-                    "&nbsp&nbsp ><font color='yellow'>센서 교체 </font> <br>" + 
-                    " 변화는 있으나 센서에 힘을 가하지 않아도 2000gf 이상 <br>" +
-                    "&nbsp&nbsp ><font color='yellow'>센서 홀더 재결합 또는 교체 </font>");
+
+                    " 75mm 이전에 멈추거나 이동거리가 증가하지않음 <br>" +
+                    "&nbsp&nbsp > <font color='yellow'> 모터 뒷단에 홀 센서가 떨어져있는지 확인하여 떨어져있는 경우 가까이 붙이고 재시험한다. </font> <br>" +
+                    "&nbsp&nbsp > <font color='yellow'> 재시험시 동일한 증상의 경우 모터를 교체한다. </font> <br>" + 
+                    " 이동시간이 28초 이상 <br>" +
+                    "&nbsp&nbsp > <font color='yellow'> 모터에 부하가 생기는 요소를 확인한다 (전선이 걸려 부하가 생김) </font> <br>" + 
+                    "&nbsp&nbsp > <font color='yellow'> 부하 요소가 없을 경우 모터를 교체한다. </font> <br>" );
                 break;
         case 'T4':
             document.getElementById("TEST1").className = "main_grid_top_2_clear";
@@ -367,18 +371,18 @@ function test_message(input_device){
             document.getElementById("TEST3").className = "main_grid_top_2_clear";
             document.getElementById("TEST4").className = "main_grid_top_2_clear";
             document.getElementById("TEST5").className = "main_grid_top_2_run";
-            viewTest("센서 검사", 
-            "센서를 손으로 힘을 가해보며 값의 변화를 검사한다. 정상 동작시 전진버튼을 누르면 다음 단계로 넘어갑니다. <br><br>" +
+            viewTest("모터 검사2", 
+            "검사자는 이동거리 및 시간의 변화를 확인하고 이상 없을시 후진버튼을 눌러 구동부를 뒤로 이동시킵니다. <br><br>" +
             " 이동거리 :  " + input[2] + "  [ mm ] <br>" +  
             " 이동시간 :  " + parseFloat(input[6])/20 + "  [ 초 ] <br><br>" +  
             " <font color='red' size='5'>불량 기준 및 대처 방안 </font><br>" +
 
                     " 75mm 이전에 멈추거나 이동거리가 증가하지않음 <br>" +
-                    "&nbsp&nbsp ><font color='yellow'> 모터 뒷단에 홀 센서가 떨어져있는지 확인하여 떨어져있는 경우 가까이 붙이고 재시험한다. </font> <br>" +
-                    "&nbsp&nbsp ><font color='yellow'> 재시험시 동일한 증상의 경우 모터를 교체한다. </font> <br>" + 
+                    "&nbsp&nbsp > <font color='yellow'> 모터 뒷단에 홀 센서가 떨어져있는지 확인하여 떨어져있는 경우 가까이 붙이고 재시험한다. </font> <br>" +
+                    "&nbsp&nbsp > <font color='yellow'> 재시험시 동일한 증상의 경우 모터를 교체한다. </font> <br>" + 
                     " 이동시간이 28초 이상 <br>" +
-                    "&nbsp&nbsp ><font color='yellow'> 모터에 부하가 생기는 요소를 확인한다 (전선이 걸려 부하가 생김) </font> <br>" + 
-                    "&nbsp&nbsp ><font color='yellow'> 부하 요소가 없을 경우 모터를 교체한다. </font> <br>" );
+                    "&nbsp&nbsp > <font color='yellow'> 모터에 부하가 생기는 요소를 확인한다 (전선이 걸려 부하가 생김) </font> <br>" + 
+                    "&nbsp&nbsp > <font color='yellow'> 부하 요소가 없을 경우 모터를 교체한다. </font> <br>" );
 
             break;
         case 'T5':
@@ -387,16 +391,8 @@ function test_message(input_device){
             document.getElementById("TEST3").className = "main_grid_top_2_clear";
             document.getElementById("TEST4").className = "main_grid_top_2_clear";
             document.getElementById("TEST5").className = "main_grid_top_2_clear";
-            viewTest("센서 검사", 
-            "센서를 손으로 힘을 가해보며 값의 변화를 검사한다. 정상 동작시 전진버튼을 누르면 다음 단계로 넘어갑니다. <br><br>" +
-            " 이동거리 :  " + input[2] + "  [ mm ] <br>" +  
-            " 이동시간 :  " + parseFloat(input[6])/20 + "  [ 초 ] <br><br>" + 
-
-            " <font color='red' size='5'>불량 기준 및 대처 방안 </font><br>" +
-                    " 힘을 가해도 센서 값의 큰 변화가 없음 또는 5000gf 이상 <br>" +
-                    "&nbsp&nbsp ><font color='yellow'>센서 교체 </font> <br>" + 
-                    " 변화는 있으나 센서에 힘을 가하지 않아도 2000gf 이상 <br>" +
-                    "&nbsp&nbsp ><font color='yellow'>센서 홀더 재결합 또는 교체 </font>");
+            viewTest("검사 완료", 
+            "제품 검사 완료.. 데이터 송신관련 테스트는 우측 wRITING TEST 버튼을 눌러주세요.[option] <br><br>" );
             break;
         default:
 
