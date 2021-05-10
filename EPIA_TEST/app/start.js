@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("17");
+viewInfo("18");
 
 
 function listener(event) {
@@ -125,8 +125,13 @@ class VETPIA {
         return this.device.gatt.getPrimaryService(0xFFF0)
         .then(service => service.getCharacteristic(0xFFF2))
         .then(descriptor => {
-                let str = stringToBytes("RST\r\n");
-                descriptor.writeValue(str);})
+                
+                let str =("RST\r\n");
+                var data = [];
+                for (var i = 0; i < url.length; i++){  
+                    data.push(str.charCodeAt(i));
+                }
+                descriptor.writeValue(data);})
     }
     writeData(data) {
     return this.device.gatt.getPrimaryService(0xFFF0)
