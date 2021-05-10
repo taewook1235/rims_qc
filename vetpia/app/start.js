@@ -67,37 +67,6 @@ var g_options = {
     }]
 };
 
-function navigateTo(outcome, useAjax) {
-    Apperyio.navigateTo(outcome, useAjax);
-}
-
-function adjustContentHeight() {
-    Apperyio.adjustContentHeightWithPadding();
-}
-
-function adjustContentHeightWithPadding(_page) {
-    Apperyio.adjustContentHeightWithPadding(_page);
-}
-
-function setDetailContent(pageUrl) {
-    Apperyio.setDetailContent(pageUrl);
-}
-Apperyio.AppPages = [{
-    "name": "after",
-    "location": "after.html"
-}, {
-    "name": "main",
-    "location": "main.html"
-}, {
-    "name": "report",
-    "location": "report.html"
-}, {
-    "name": "before",
-    "location": "before.html"
-}, {
-    "name": "start",
-    "location": "start.html"
-}];
 
 function initGraph(){
     var positionArray = 0;
@@ -359,20 +328,10 @@ function start_js() {
         window.n2id = n2id_buf;
     }
 
-    Apperyio.mappings = Apperyio.mappings || {};
-    Apperyio.datasources = Apperyio.datasources || {};
-    Apperyio.CurrentScreen = 'start';
-    _.chain(Apperyio.mappings)
-        .filter(function(m) {
-            return m.homeScreen === Apperyio.CurrentScreen;
-        })
-        .each(Apperyio.UIHandler.hideTemplateComponents);
+
 
     var start_onLoad = function() {
         start_elementsExtraJS();
-        Apperyio('main_grid').css('margin', 'auto');
-        Apperyio('main_grid_name').css('margin', 'auto');
-        Apperyio('main_grid_name').css('margin-bottom', '10px');
         start_deviceEvents();
         start_windowEvents();
         start_elementsEvents();
@@ -438,26 +397,17 @@ function start_js() {
                     Data.dataPoints = v_dataPoints;
                     sessionStorage.setItem("vetpia",JSON.stringify(Data));
                     clearInterval(graphInterval);
-                    Apperyio.navigateTo('after', {
-                        transition: 'slide',
-                        reverse: false
-                    });
+
                 }
             },
         }, '#start_rim_container [name="btn_save"]');
     };
     $(document).off("pagebeforeshow", "#start").on("pagebeforeshow", "#start", function(event, ui) {
-        Apperyio.CurrentScreen = "start";
-        _.chain(Apperyio.mappings)
-            .filter(function(m) {
-                return m.homeScreen === Apperyio.CurrentScreen;
-            })
-            .each(Apperyio.UIHandler.hideTemplateComponents);
+
     });
     start_onLoad();
 };
 $(document).off("pagecreate", "#start").on("pagecreate", "#start", function(event, ui) {
-    Apperyio.processSelectMenu($(this));
     start_js();
     var scale = min;
     var ticks ="";
