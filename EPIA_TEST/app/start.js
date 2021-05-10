@@ -1,85 +1,14 @@
 
-initSessionData();
 var position_sub = 20;
 var back_flag = 0;
-function initSessionData(){
-    let vetpia = sessionStorage.getItem("vetpia");
-    if (vetpia == null){
-        let today = new Date();
-        console.log(today);
-        const opNumber = "VET" + today.getTime();
-        console.log(opNumber);  
-        Data["opNumber"] = opNumber; 
-        sessionStorage.setItem("vetpia",JSON.stringify(Data));
-    }
-        else
-        Data =  JSON.parse(vetpia);
-}
 
 
 var v_dataPoints = [{x:0,y:0}];
-var length = Data.needleLength;
+var length = 30
 var min=0,max=0;
 var totalCount = 1; 
 length = parseInt(length);    
-if(length==50) {
-    min=0; max=50;
-    position_sub = 25;}
-else if(length==55){
-    min=5; max=55;
-    position_sub = 25;
-}
-else if(length==60){
-    min=10; max=60;
-    position_sub = 20;
-}
-else if(length==80) {
-    min=30; max=80;
-    position_sub = 0;
-}
-else {
-    min=10; max=60;
-    position_sub = 20;
-}
 
-var g_options = {
-    exportEnabled: true,
-    theme: "dark1",
-    title: {
-        title:"", 
-    },		
-    axisX: {
-        title: "Length(mm)",
-        minimum: min,
-        maximum: max,
-    },
-    axisY: { 
-        title: "Force(gf)",
-        minimum: 0,
-        maximum: 2000,
-        
-    },
-    width:645,
-    height:503,
-    data: [{
-        markerType: "none",  //"circle", "square", "cross", "none"
-        type: "area",
-        toolTipContent: "<b>Length: {x}</b> </br> Force: {y}",
-        dataPoints: v_dataPoints,
-    }]
-};
-
-
-function initGraph(){
-    var positionArray = 0;
-    var forceArray =0;
-    v_dataPoints = [{x:0,y:0}];
-    g_options.data[0].dataPoints = v_dataPoints;
-    $("#start_chartContainer").CanvasJSChart().render();
-    $("#start_slide_needle").val(positionArray).slider("refresh");
-    $("#n_length").text(positionArray);
-    $("#n_force").text(forceArray);
-}
 
 
 
@@ -309,8 +238,8 @@ function start_js() {
 
     function start_windowEvents() {
         $('#start').bind('pageshow orientationchange', function() {
-            var _page = this;
-            adjustContentHeightWithPadding(_page);
+       //     var _page = this;
+       //     adjustContentHeightWithPadding(_page);
         });
     };
     function start_deviceEvents() {
