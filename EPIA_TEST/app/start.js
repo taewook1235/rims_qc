@@ -58,14 +58,14 @@ function listener(event) {
         positionArray = positionArray.toFixed(3);
         testArray = testArray.toFixed(2);
         message1 = "FORCE : " + forceArray;
-        message1 += "<BR> LENGTH : " + positionArray;
-        message1 += "<BR> TIME : " + timeArray;
-        message1 += "<BR> COMMAND : " + commandArray;
-        message1 += "<BR> TEST : " + testArray;
+        message1 += "<br> LENGTH : " + positionArray;
+        message1 += "<br> TIME : " + timeArray;
+        message1 += "<br> COMMAND : " + commandArray;
+        message1 += "<br> TEST : " + testArray;
 
         document.querySelector("#device_data"). innerHTML =message1;
         document.querySelector("#data_info").innerHTML = "";
-        
+
         viewTest("검사모드 연결 ", 
         "검사 모드로 동작시켜주세요.<br> 정지버튼 누른상태에서 후진버튼 5회 누르면 검사모드로 동작됩니다. <br>" );
 
@@ -136,7 +136,7 @@ class VETPIA {
         .then(service => service.getCharacteristic(0xFFF2))
         .then(descriptor => {
                 
-                let str1 =("75 60 400\r\n");
+                let str1 =("75 60 400\n");
                 var buffer = new ArrayBuffer();
                 
                 buffer = str2ab(str1);
