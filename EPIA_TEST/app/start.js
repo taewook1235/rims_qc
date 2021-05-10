@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("3");
+viewInfo("4");
 function listener(event) {
     const value = event.target.value;
     let tmpResult = [];
@@ -24,6 +24,7 @@ function listener(event) {
         tmpResult.push(value.getUint8(i));
     }
     console.log(tmpResult.lenght);
+    console.log(value.byteLength);
     
 
     forceArray = getFloat(tmpResult.slice(2,6).reverse());
