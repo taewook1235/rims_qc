@@ -210,10 +210,10 @@ function start_js() {
             vetpia.writeData(userDescription);
             
         });
-
+/*
         var input_device = "T4\t604.8\t29.288\t95230\tOOXXXX\tXXOO\t1200";
         test_message(input_device);
-
+*/
 
 
 
@@ -392,7 +392,7 @@ function test_message(input_device){
             document.getElementById("TEST4").className = "main_grid_top_2_clear";
             document.getElementById("TEST5").className = "main_grid_top_2_clear";
             viewTest("검사 완료", 
-            "제품 검사 완료.. 데이터 송신관련 테스트는 우측 wRITING TEST 버튼을 눌러주세요.[option] <br><br>" );
+            "제품 검사 완료. <br> 데이터 송신관련 테스트는 우측 wRITING TEST 버튼을 눌러주세요.[option] <br><br>" );
             break;
         default:
 
@@ -406,36 +406,4 @@ function viewTest(str_master, str_detail){
     document.querySelector("#test_master").innerHTML = str_master;
     document.querySelector("#test_detail").innerHTML = str_detail;
 
-}
-function class_change(num){
-
-    switch (num){
-        case 0:
-
-        case 1:
-
-            break;
-        case 2:
-            break;
-        case 3:
-            document.getElementById("TEST1").className = "main_grid_top_2_clear"
-            document.getElementById("TEST2").className = "main_grid_top_2_clear"
-            document.getElementById("TEST3").className = "main_grid_top_2_clear"
-            document.getElementById("TEST4").className = "main_grid_top_2_run"
-            break;
-        case 4:
-            document.getElementById("TEST1").className = "main_grid_top_2_clear"
-            document.getElementById("TEST2").className = "main_grid_top_2_clear"
-            document.getElementById("TEST3").className = "main_grid_top_2_clear"
-            document.getElementById("TEST4").className = "main_grid_top_2_clear"
-            document.getElementById("TEST5").className = "main_grid_top_2_run"
-            break;
-        case 5:
-            document.getElementById("TEST1").className = "main_grid_top_2_clear"
-            document.getElementById("TEST2").className = "main_grid_top_2_clear"
-            document.getElementById("TEST3").className = "main_grid_top_2_clear"
-            document.getElementById("TEST4").className = "main_grid_top_2_clear"
-            document.getElementById("TEST5").className = "main_grid_top_2_clear"
-            break;
-    }
 }
