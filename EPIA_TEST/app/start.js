@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("16");
+viewInfo("17");
 
 
 function listener(event) {
@@ -184,7 +184,7 @@ function start_js() {
             .catch(error => { viewInfo("<font color=#ff0000>" + error + "</font>")});
         });
         document.querySelector('#input_write').addEventListener('click', event => {
-            vetpia.writeData("RST\r\n");
+            vetpia.writeDescripter();
             alert("Aa");
         });
     };
