@@ -10,8 +10,27 @@ var totalCount = 1;
 length = parseInt(length);    
 
 
+function ab2str(buf) {
+    return String.fromCharCode.apply(null, new Uint8Array(buf));
+  }
+function str2ab(str) {
+  var buf = new ArrayBuffer(str.length); // 2 bytes for each char
+  var bufView = new Uint8Array(buf);
+  for (var i=0, strLen=str.length; i < strLen; i++) {
+    bufView[i] = str.charCodeAt(i);
+  }
+  return buf;
+}
+/*
+let str1 =("RST\r\n");
+var buffer = new ArrayBuffer();
 
-viewInfo("20");
+buffer = str2ab(str1);
+console.log( typeof buffer);
+console.log(buffer);
+
+*/
+viewInfo("23");
 
 
 function listener(event) {
@@ -127,12 +146,11 @@ class VETPIA {
         .then(service => service.getCharacteristic(0xFFF2))
         .then(descriptor => {
                 
-                let str =("RST\r\n");
-                var data = [];
-                for (var i = 0; i < str.length; i++){  
-                    data.push(str.charCodeAt(i));
-                }
-                descriptor.writeValue(data);})
+                let str1 =("RST\r\n");
+                var buffer = new ArrayBuffer();
+                
+                buffer = str2ab(str1);
+                descriptor.writeValue(buffer);})
     }
     writeData(data) {
     return this.device.gatt.getPrimaryService(0xFFF0)
