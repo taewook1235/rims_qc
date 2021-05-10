@@ -11,22 +11,22 @@ length = parseInt(length);
 
 
 
-
+viewInfo("1");
 function listener(event) {
 
+    let tmpResult = [];
+    let forceArray = new Uint8Array(4);
+    let positionArray = new Uint8Array(4);
+    let timeArray = new Uint8Array(4);
+    let commandArray =new Uint8Array(4);
+    let testdArray =new Uint8Array(4);
+    for (let i = 0; i < data.byteLength; i++) {
+        tmpResult.push(data[i]);
+    }
 
-    if ( data.length == 22){
-        {
+    if ( data.byteLength == 22){
+        
          //   beatsPerMinute.innerHTML = data.length + " : ";
-            let tmpResult = [];
-            let forceArray = new Uint8Array(4);
-            let positionArray = new Uint8Array(4);
-            let timeArray = new Uint8Array(4);
-            let commandArray =new Uint8Array(4);
-            let testdArray =new Uint8Array(4);
-            for (let i = 0; i < data.byteLength; i++) {
-                tmpResult.push(data[i]);
-            }
             forceArray = getFloat(tmpResult.slice(2,6).reverse());
             positionArray = getFloat(tmpResult.slice(6,10).reverse());
             timeArray = getFloat(tmpResult.slice(10,14).reverse());
@@ -46,7 +46,7 @@ function listener(event) {
             message1 += "<BR> COMMAND : " + commandArray;
             message1 += "<BR> TEST : " + testdArray;
             document.querySelector("#device_data"). innerHTML =message1;
-        }
+        
     }
 }
 
