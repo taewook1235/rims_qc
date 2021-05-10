@@ -29,7 +29,7 @@ function listener(event) {
         positionArray = getFloat(tmpResult.slice(6,10).reverse());
         timeArray = getFloat(tmpResult.slice(10,14).reverse());
         commandArray = getFloat(tmpResult.slice(14,18).reverse());
-        testdArray = getFloat(tmpResult.slice(18,22).reverse());
+        testArray = getFloat(tmpResult.slice(18,22).reverse());
 
         forceArray = Math.round(forceArray*10)/10;
         positionArray = Math.round(positionArray*1000)/1000;
