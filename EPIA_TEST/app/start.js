@@ -234,6 +234,9 @@ function start_js() {
             })
             .catch(error => { viewInfo("<font color=#ff0000>" + error + "</font>")});
         });
+        document.querySelector('#input_write').addEventListener('click', event => {
+            alert("aa");
+        });
     };
 
     function start_windowEvents() {
