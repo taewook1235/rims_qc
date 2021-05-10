@@ -21,15 +21,10 @@ function str2ab(str) {
   }
   return buf;
 }
-/*
-let str1 =("RST\r\n");
-var buffer = new ArrayBuffer();
 
-buffer = str2ab(str1);
-console.log( typeof buffer);
-console.log(buffer);
 
-*/
+
+
 viewInfo("27");
 
 
@@ -70,23 +65,12 @@ function listener(event) {
         document.querySelector("#data_info").innerHTML = "";
     }
     else {
-        let input_a = "";
+        let input_device = "";
         for (let i = 0; i < value.byteLength; i++) {
             input_a += String.fromCharCode(tmpResult[i]);
         }
-        //var input_a = "T2\t604.8\t29.288\t95230\tOOXXXX\tOOOO\t0";
-        var jbSplit = input_a.split('\t'); 
-        if (!( typeof jbSplit[0] == "undefined")){
-            document.querySelector("#device_data").innerHTML = input_a;
-            document.querySelector("#data_info").innerHTML =
-                '<p>' +  jbSplit[0] + '</p>' +
-                '<p>' +  jbSplit[1] + '</p>' +
-                '<p>' +  jbSplit[2] + '</p>' +
-                '<p>' +  jbSplit[3] + '</p>' +
-                '<p>' +  jbSplit[4] + '</p>' +
-                '<p>' +  jbSplit[5] + '</p>' +
-                '<p>' +  jbSplit[6] + '</p>';
-        }
+      //  var input_a = "T2\t604.8\t29.288\t95230\tOOXXXX\tOOOO\t0";
+      test_message(input_device);
     }
 
 }
@@ -226,6 +210,12 @@ function start_js() {
             vetpia.writeData(userDescription);
             
         });
+
+        //var input_device = "T1\t604.8\t29.288\t95230\tOOXXXX\tXXOO\t0";
+
+
+
+
     };
 
     function start_windowEvents() {
@@ -253,7 +243,7 @@ function start_js() {
         $(document).off("click", '#start_rim_header [name="navbar_home_item"]').on({
             click: function(event) {
                 if (!$(this).attr('disabled')) {
-
+                    
                 }
             },
         }, '#start_rim_header [name="navbar_home_item"]');
@@ -301,3 +291,103 @@ $(document).off("pageshow", "#start").on("pageshow", "#start", function(event, u
     $("#btn_start").focus();
 });
 
+
+
+function test_message(input_device){
+
+    var input = input_device.split('\t'); 
+    document.querySelector("#device_data").innerHTML = input_device;
+    document.querySelector("#data_info").innerHTML =
+            '<p>' +  input[0] + '</p>' + //step
+            '<p>' +  input[1] + '</p>' + // force
+            '<p>' +  input[2] + '</p>' + // postion
+            '<p>' +  input[3] + '</p>' + // time
+            '<p>' +  input[4] + '</p>' + // check1
+            '<p>' +  input[5] + '</p>' + // btn check
+            '<p>' +  input[6] + '</p>';  // moving
+
+    switch(input[0]){
+        case 'T0':            
+        document.getElementById("TEST1").className = "main_grid_top_2_run"
+        viewTest("Limit Switch 검사", 
+        "검사모드 시작시 모터가 뒤로 회전하며 리셋스위치를 누르면 다음단계로 넘어갑니다.<br><br>" +
+        " <font color='red' size='5'>불량 기준 및 대처 방안 </font><br>" +
+                " 모터가 동작 안함 <br>" +
+                "&nbsp&nbsp> 파워서플라이 출력 전류 (0.6A 이상) " + "<font color='yellow'>모터 케이블 간섭 확인 </font> <br>  " + 
+                "&nbsp&nbsp> 파워서플라이 출력 전류 (0.2A 이하) " + "<font color='yellow'>모터 커넥터 확인, 모터 교체</font> <br><br>  "  + 
+                " 2단계(버튼검사)로 진입하지않고 모터가 계속 뒤로 이동 하려함" + "&nbsp&nbsp> <font color='yellow'> 스위치 교체</font> ");
+            break;
+        case 'T1':            
+        document.getElementById("TEST1").className = "main_grid_top_2_clear"
+        document.getElementById("TEST2").className = "main_grid_top_2_run"
+        viewTest("버튼 검사", 
+        "버튼을 아래 순서대로 누르고 결과(정상 동작시 괄호안에 O표시 됨)를 확인한다. <br><br>" +
+        " 전진 버튼 : (" + input[5].substr(3,1) + ") <br>" + 
+        " 미세전진 버튼 : (" + input[5].substr(2,1) + ") <br>" + 
+        " 정지 버튼 : (" + input[5].substr(1,1) + ") <br>" + 
+        " 후진 버튼 : (" + input[5].substr(0,1) + ") <br>" + 
+
+        " <font color='red' size='5'>불량 기준 및 대처 방안 </font><br>" +
+                " 검사자가 버튼을 누르기 전 O 표시가 되어있음 <br>" +
+                "&nbsp&nbsp> (1) 버튼을 눌러보며 눌리는 소리가 나는지 확인하고, PCB 와 스위치 노브간 재결합한다. ");
+            break;
+        case 'T2':
+            class_change(2);
+            break;
+        case 'T3':
+            class_change(3);
+            break;
+        case 'T4':
+            class_change(4);
+            break;
+        case 'T5':
+            class_change(5);
+            break;
+        default:
+
+            break;
+
+    }
+            
+       // document.getElementById("TEST1").className = "main_grid_top_2_clear";
+}
+function viewTest(str_master, str_detail){
+    document.querySelector("#test_master").innerHTML = str_master;
+    document.querySelector("#test_detail").innerHTML = str_detail;
+
+}
+function class_change(num){
+
+    switch (num){
+        case 0:
+
+        case 1:
+
+            break;
+        case 2:
+            document.getElementById("TEST1").className = "main_grid_top_2_clear"
+            document.getElementById("TEST2").className = "main_grid_top_2_clear"
+            document.getElementById("TEST3").className = "main_grid_top_2_run"
+            break;
+        case 3:
+            document.getElementById("TEST1").className = "main_grid_top_2_clear"
+            document.getElementById("TEST2").className = "main_grid_top_2_clear"
+            document.getElementById("TEST3").className = "main_grid_top_2_clear"
+            document.getElementById("TEST4").className = "main_grid_top_2_run"
+            break;
+        case 4:
+            document.getElementById("TEST1").className = "main_grid_top_2_clear"
+            document.getElementById("TEST2").className = "main_grid_top_2_clear"
+            document.getElementById("TEST3").className = "main_grid_top_2_clear"
+            document.getElementById("TEST4").className = "main_grid_top_2_clear"
+            document.getElementById("TEST5").className = "main_grid_top_2_run"
+            break;
+        case 5:
+            document.getElementById("TEST1").className = "main_grid_top_2_clear"
+            document.getElementById("TEST2").className = "main_grid_top_2_clear"
+            document.getElementById("TEST3").className = "main_grid_top_2_clear"
+            document.getElementById("TEST4").className = "main_grid_top_2_clear"
+            document.getElementById("TEST5").className = "main_grid_top_2_clear"
+            break;
+    }
+}
