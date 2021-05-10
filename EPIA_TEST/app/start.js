@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("19");
+viewInfo("20");
 
 
 function listener(event) {
@@ -48,6 +48,7 @@ function listener(event) {
         message1 += "<BR> TEST : " + testArray;
 
         document.querySelector("#device_data"). innerHTML =message1;
+        document.querySelector("#data_info").innerHTML = "";
     }
     else {
         let input_a = "";
