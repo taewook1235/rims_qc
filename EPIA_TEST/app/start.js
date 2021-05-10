@@ -1,6 +1,7 @@
 initSessionData();
 var position_sub = 20;
 var back_flag = 0;
+
 function initSessionData(){
     let vetpia = sessionStorage.getItem("vetpia");
     if (vetpia == null){
@@ -19,27 +20,6 @@ var v_dataPoints = [{x:0,y:0}];
 var length = Data.needleLength;
 var min=0,max=0;
 var totalCount = 1; 
-length = parseInt(length);    
-if(length==50) {
-    min=0; max=50;
-    position_sub = 25;}
-else if(length==55){
-    min=5; max=55;
-    position_sub = 25;
-}
-else if(length==60){
-    min=10; max=60;
-    position_sub = 20;
-}
-else if(length==80) {
-    min=30; max=80;
-    position_sub = 0;
-}
-else {
-    min=10; max=60;
-    position_sub = 20;
-}
-
 var g_options = {
     exportEnabled: true,
     theme: "dark1",
@@ -179,7 +159,8 @@ function listener(event) {
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - position_sub;
-    updateToGraph(positionArray,forceArray,commandArray);
+    document.getElementById("scanData").innerHTML = tmpResult;
+//    updateToGraph(positionArray,forceArray,commandArray);
 }
 
 function getFloat(array) {
@@ -417,54 +398,17 @@ function start_js() {
         });
         $(document).off("click", '#start_rim_header [name="navbar_home_item"]').on({
             click: function(event) {
+
                 if (!$(this).attr('disabled')) {
+                    alert("aa");
+                    /*
                     Apperyio.navigateTo('main', {
                         transition: 'slide',
                         reverse: false
-                    });
+                    });*/
                 }
             },
         }, '#start_rim_header [name="navbar_home_item"]');
-        $(document).off("click", '#start_rim_header [name="navbar_before_item"]').on({
-            click: function(event) {
-                if (!$(this).attr('disabled')) {
-                    Apperyio.navigateTo('before', {
-                        transition: 'slide',
-                        reverse: false
-                    });
-                }
-            },
-        }, '#start_rim_header [name="navbar_before_item"]');
-        $(document).off("click", '#start_rim_header [name="navbar_start_item"]').on({
-            click: function(event) {
-                if (!$(this).attr('disabled')) {
-                    Apperyio.navigateTo('start', {
-                        transition: 'slide',
-                        reverse: false
-                    });
-                }
-            },
-        }, '#start_rim_header [name="navbar_start_item"]');
-        $(document).off("click", '#start_rim_header [name="navbar_after_item"]').on({
-            click: function(event) {
-                if (!$(this).attr('disabled')) {
-                    Apperyio.navigateTo('after', {
-                        transition: 'slide',
-                        reverse: false
-                    });
-                }
-            },
-        }, '#start_rim_header [name="navbar_after_item"]');
-        $(document).off("click", '#start_rim_header [name="navbar_report_item"]').on({
-            click: function(event) {
-                if (!$(this).attr('disabled')) {
-                    Apperyio.navigateTo('report', {
-                        transition: 'slide',
-                        reverse: false
-                    });
-                }
-            },
-        }, '#start_rim_header [name="navbar_report_item"]');
         $(document).off("click", '#start_rim_container [name="btn_new"]').on({
             click: function(event) {
                 if (!$(this).attr('disabled')) {
@@ -476,13 +420,7 @@ function start_js() {
         $(document).off("click", '#start_rim_container [name="btn_save"]').on({
             click: function(event) {
                 if (!$(this).attr('disabled')) {
-                    Data.dataPoints = v_dataPoints;
-                    sessionStorage.setItem("vetpia",JSON.stringify(Data));
-                    clearInterval(graphInterval);
-                    Apperyio.navigateTo('after', {
-                        transition: 'slide',
-                        reverse: false
-                    });
+
                 }
             },
         }, '#start_rim_container [name="btn_save"]');
