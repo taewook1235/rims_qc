@@ -102,8 +102,7 @@ function listener(event) {
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - position_sub;
-    document.getElementById("device_data"). innerHTML = forcearray;
-    
+    document.querySelector("#device_data"). innerHTML = "a" + tmpResult;
 }
 
 function getFloat(array) {
@@ -375,20 +374,7 @@ $(document).off("pagecreate", "#start").on("pagecreate", "#start", function(even
 });
 
 $(document).off("pageshow", "#start").on("pageshow", "#start", function(event, ui) {
-    $("#start_slide_needle").attr("min",min);
-    $("#start_slide_needle").attr("max",max);
-    $("#start_slide_needle").val(min);
-    $("#start_slide_needle").slider("refresh");
-    $("#start_chartContainer").CanvasJSChart(g_options);
-    $("#start_lbl_number").text(Data.opNumber);
-    $("#start_lbl_name").text(Data.docName);
-    $("#start_txt_subspecies").text(Data.breeds);
-    $("#start_txt_info_name").text(Data.patientName);
-    $("#start_txt_info_age").text(Data.patientAge);
-    $("#start_txt_info_gender").text(Data.patientSex);
-    $("#start_txt_info_weight").text(Data.patientWeight);
-    $("#start_txt_info_length").text(Data.needleLength);
-    $("#start_txt_info_count").text(totalCount);
-    initGraph();
+
+ //   initGraph();
     $("#btn_start").focus();
 });
