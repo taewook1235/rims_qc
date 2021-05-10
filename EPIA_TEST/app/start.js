@@ -12,6 +12,8 @@ length = parseInt(length);
 
 
 viewInfo("9");
+
+
 function listener(event) {
     const value = event.target.value;
     let tmpResult = [];
@@ -46,18 +48,21 @@ function listener(event) {
     }
     else {
         let input_a = "";
-    for (let i = 0; i < value.byteLength; i++) {
-        input_a += String.fromCharCode(tmpResult[i]);
-        
-    }
-
-    document.querySelector("#device_data"). innerHTML =input_a;
-    var jbSplit = input_a.split('\t'); 
-    for ( var i in jbSplit ) {
-        document.querySelector("#data_info"). innerHTML ='<p>' + jbSplit[i] + '</p>' ;
-    }
-
-
+        for (let i = 0; i < value.byteLength; i++) {
+            input_a += String.fromCharCode(tmpResult[i]);
+            
+        }
+        //var input_a = "T2\t604.8\t29.288\t95230\tOOXXXX\tOOOO\t0";
+        document.querySelector("#device_data").innerHTML = input_a;
+        var jbSplit = input_a.split('\t'); 
+        document.querySelector("#data_info").innerHTML =
+            '<p>' +  jbSplit[0] + '</p>' +
+            '<p>' +  jbSplit[1] + '</p>' +
+            '<p>' +  jbSplit[2] + '</p>' +
+            '<p>' +  jbSplit[3] + '</p>' +
+            '<p>' +  jbSplit[4] + '</p>' +
+            '<p>' +  jbSplit[5] + '</p>' +
+            '<p>' +  jbSplit[6] + '</p>';
     }
 
 }
@@ -248,6 +253,9 @@ function start_js() {
 
         let vetpia = new VETPIA();
         document.querySelector('#btn_start').addEventListener('click', event => {
+
+
+
             vetpia.request()
             .then(_ => vetpia.connect())
             .then(_ => { 
@@ -337,3 +345,4 @@ $(document).off("pageshow", "#start").on("pageshow", "#start", function(event, u
  //   initGraph();
     $("#btn_start").focus();
 });
+
