@@ -26,6 +26,8 @@ function str2ab(str) {
 
 
 viewInfo("-");
+viewTest("EPIA(VETPIA) TEST", 
+"EPIA(VETPIA) TEST <br>" );
 
 
 function listener(event) {
@@ -63,9 +65,9 @@ function listener(event) {
 
         document.querySelector("#device_data"). innerHTML =message1;
         document.querySelector("#data_info").innerHTML = "";
-
-            viewTest("검사모드 연결", 
-            "검사모드 시작시 모터가 뒤로 회전하며 리셋스위치를 누르면 다음단계로 넘어갑니다.<br><br>" );
+        
+        viewTest("검사모드 연결 ", 
+        "검사 모드로 동작시켜주세요.<br> 정지버튼 누른상태에서 후진버튼 5회 누르면 검사모드로 동작됩니다. <br>" );
 
     }
     else {
