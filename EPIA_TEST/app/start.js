@@ -27,7 +27,7 @@ function listener(event) {
     }
     
     document.querySelector("#device_data_length"). innerHTML =value.byteLength;
-    
+
     if( value.byteLength == 22){
         forceArray = getFloat(tmpResult.slice(2,6).reverse());
         positionArray = getFloat(tmpResult.slice(6,10).reverse());
@@ -40,11 +40,12 @@ function listener(event) {
         positionArray = positionArray - position_sub;
 
         positionArray = positionArray.toFixed(3);
+        testArray = testArray.toFixed(2);
         message1 = "FORCE : " + forceArray;
         message1 += "<BR> LENGTH : " + positionArray;
         message1 += "<BR> TIME : " + timeArray;
         message1 += "<BR> COMMAND : " + commandArray;
-        message1 += "<BR> TEST : " + testdArray;
+        message1 += "<BR> TEST : " + testArray;
 
         document.querySelector("#device_data"). innerHTML =message1;
     }
