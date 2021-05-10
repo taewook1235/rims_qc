@@ -56,7 +56,7 @@ function listener(event) {
         }
         //var input_a = "T2\t604.8\t29.288\t95230\tOOXXXX\tOOOO\t0";
         var jbSplit = input_a.split('\t'); 
-        if (!( jbSplit[0] == undefined)){
+        if (!( typeof jbSplit[0] == "undefined")){
             document.querySelector("#device_data").innerHTML = input_a;
             document.querySelector("#data_info").innerHTML =
                 '<p>' +  jbSplit[0] + '</p>' +
