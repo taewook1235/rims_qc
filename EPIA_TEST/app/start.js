@@ -94,6 +94,7 @@ function listener(event) {
     for (let i = 0; i < value.byteLength; i++) {
         tmpResult.push(value.getUint8(i));
     }
+    /*
     forceArray = getFloat(tmpResult.slice(2,6).reverse());
     positionArray = getFloat(tmpResult.slice(6,10).reverse());
     timeArray = getFloat(tmpResult.slice(10,14).reverse());
@@ -102,7 +103,8 @@ function listener(event) {
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - position_sub;
-    document.querySelector("#device_data"). innerHTML = "a" + tmpResult;
+    */
+    //document.querySelector("#device_data"). innerHTML = "a" + tmpResult;
 }
 
 function getFloat(array) {
@@ -322,7 +324,7 @@ function start_js() {
 
     function start_elementsEvents() {
         $("#btn_clear").click(function(){
-            initGraph();
+           // initGraph();
         });
         $(document).on("click", "a :input,a a,a fieldset label", function(event) {
             event.stopPropagation();
