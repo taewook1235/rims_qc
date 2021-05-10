@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("18");
+viewInfo("19");
 
 
 function listener(event) {
@@ -128,7 +128,7 @@ class VETPIA {
                 
                 let str =("RST\r\n");
                 var data = [];
-                for (var i = 0; i < url.length; i++){  
+                for (var i = 0; i < str.length; i++){  
                     data.push(str.charCodeAt(i));
                 }
                 descriptor.writeValue(data);})
