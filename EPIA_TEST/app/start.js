@@ -23,27 +23,29 @@ function listener(event) {
     for (let i = 0; i < value.byteLength; i++) {
         tmpResult.push(value.getUint8(i));
     }
-    console.log(tmpResult.lenght);
-    console.log(value.byteLength);
     
+    if( value.byteLength == 22){
+        forceArray = getFloat(tmpResult.slice(2,6).reverse());
+        positionArray = getFloat(tmpResult.slice(6,10).reverse());
+        timeArray = getFloat(tmpResult.slice(10,14).reverse());
+        commandArray = getFloat(tmpResult.slice(14,18).reverse());
+        testdArray = getFloat(tmpResult.slice(18,22).reverse());
 
-    forceArray = getFloat(tmpResult.slice(2,6).reverse());
-    positionArray = getFloat(tmpResult.slice(6,10).reverse());
-    timeArray = getFloat(tmpResult.slice(10,14).reverse());
-    commandArray = getFloat(tmpResult.slice(14,18).reverse());
-    testdArray = getFloat(tmpResult.slice(18,22).reverse());
+        forceArray = Math.round(forceArray*10)/10;
+        positionArray = Math.round(positionArray*1000)/1000;
+        positionArray = positionArray - position_sub;
 
-    forceArray = Math.round(forceArray*10)/10;
-    positionArray = Math.round(positionArray*1000)/1000;
-    positionArray = positionArray - position_sub;
-
-    positionArray = positionArray.toFixed(3);
-    message1 = "FORCE : " + forceArray;
-    message1 += "<BR> LENGTH : " + positionArray;
-    message1 += "<BR> TIME : " + timeArray;
-    message1 += "<BR> COMMAND : " + commandArray;
-    message1 += "<BR> TEST : " + testdArray;
-    document.querySelector("#device_data"). innerHTML =message1;
+        positionArray = positionArray.toFixed(3);
+        message1 = "FORCE : " + forceArray;
+        message1 += "<BR> LENGTH : " + positionArray;
+        message1 += "<BR> TIME : " + timeArray;
+        message1 += "<BR> COMMAND : " + commandArray;
+        message1 += "<BR> TEST : " + testdArray;
+        document.querySelector("#device_data"). innerHTML =message1;
+    }
+    else {
+        document.querySelector("#device_data"). innerHTML = tmpResult.toString('ascii', 0, value.byteLength);
+    }
 
 }
 
@@ -241,7 +243,7 @@ function start_js() {
                 graphInterval = setInterval(function(){
                     vetpia.startNotifications(listener);
                     vetpia.stopNotifications(listener);
-                },50)
+                },100)
             })
             .catch(error => { viewInfo("<font color=#ff0000>" + error + "</font>")});
         });
