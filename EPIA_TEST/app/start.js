@@ -57,7 +57,6 @@ function listener(event) {
         document.querySelector("#data_info"). innerHTML ='<p>' + jbSplit[i] + '</p>' ;
     }
 
-    //   document.querySelector("#device_data"). innerHTML = value;
 
     }
 
