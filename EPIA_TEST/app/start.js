@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("4");
+viewInfo("5");
 function listener(event) {
     const value = event.target.value;
     let tmpResult = [];
@@ -41,6 +41,7 @@ function listener(event) {
         message1 += "<BR> TIME : " + timeArray;
         message1 += "<BR> COMMAND : " + commandArray;
         message1 += "<BR> TEST : " + testdArray;
+        
         document.querySelector("#device_data"). innerHTML =message1;
     }
     else {
