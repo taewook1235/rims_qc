@@ -7,12 +7,16 @@ function initSessionData(){
         let today = new Date();
         console.log(today);
         const opNumber = "VET" + today.getTime();
+        console.log(opNumber);  
+        Data["opNumber"] = opNumber; 
+        sessionStorage.setItem("vetpia",JSON.stringify(Data));
     }
         else
         Data =  JSON.parse(vetpia);
 }
 
 var v_dataPoints = [{x:0,y:0}];
+var length = Data.needleLength;
 var min=0,max=0;
 var totalCount = 1; 
 length = parseInt(length);    
@@ -96,11 +100,66 @@ Apperyio.AppPages = [{
 }];
 
 function initGraph(){
-
+    var positionArray = 0;
+    var forceArray =0;
+    v_dataPoints = [{x:0,y:0}];
+    g_options.data[0].dataPoints = v_dataPoints;
+    $("#start_chartContainer").CanvasJSChart().render();
+    $("#start_slide_needle").val(positionArray).slider("refresh");
+    $("#n_length").text(positionArray);
+    $("#n_force").text(forceArray);
 }
 
+function updateData(positionArray,forceArray) {
+    
+    var length = positionArray.toFixed(2);
+
+    if(v_dataPoints[v_dataPoints.length-1]["x"]!=positionArray && typeof positionArray=="number")
+        {
+            v_dataPoints.push({ x: positionArray, y: forceArray});}
+            
+        //console.log(v_dataPoints);
+  //  if(v_dataPoints.length>2) {
+        $("#start_chartContainer").CanvasJSChart().render();
+        $("#start_slide_needle").val(positionArray).slider("refresh");
+        $("#n_length").text(length);
+        $("#n_force").text(forceArray);
+   // }
+    /*
+    if((v_dataPoints[v_dataPoints.length-1].x<v_dataPoints[v_dataPoints.length-2].x) && back_flag == 0 ){
+        back_flag = 1;
+        totalCount = totalCount + 1;
+        $("#start_txt_info_count").text(totalCount);
+    }
+    */
+}
+
+function updateToGraph(positionArray,forceArray,commandArray){
+
+   // updateData(positionArray,forceArray);
+    var length =positionArray.toFixed(2);
+    
+    if ( commandArray != 20.0){        
+        if( back_flag == 1 ){
+            back_flag = 0;
+            totalCount = totalCount + 1;
+            $("#start_txt_info_count").text(totalCount);
+        }
+        updateData(positionArray,forceArray);    
+    }
+    else {
+        back_flag = 1;
+        console.log(min);
+        console.log(length);
+        if ( parseFloat(length) < parseFloat(min+1) ){
+            initGraph();
+        }
+        $("#n_length").text(length);
+        $("#n_force").text(forceArray);
+    }
 
 
+}
 
 function listener(event) {
     const value = event.target.value;
@@ -121,6 +180,7 @@ function listener(event) {
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - position_sub;
+    updateToGraph(positionArray,forceArray,commandArray);
 }
 
 function getFloat(array) {
@@ -417,6 +477,7 @@ function start_js() {
         $(document).off("click", '#start_rim_container [name="btn_save"]').on({
             click: function(event) {
                 if (!$(this).attr('disabled')) {
+                    Data.dataPoints = v_dataPoints;
                     sessionStorage.setItem("vetpia",JSON.stringify(Data));
                     clearInterval(graphInterval);
                     Apperyio.navigateTo('after', {
@@ -452,7 +513,20 @@ $(document).off("pagecreate", "#start").on("pagecreate", "#start", function(even
 });
 
 $(document).off("pageshow", "#start").on("pageshow", "#start", function(event, ui) {
-
+    $("#start_slide_needle").attr("min",min);
+    $("#start_slide_needle").attr("max",max);
+    $("#start_slide_needle").val(min);
+    $("#start_slide_needle").slider("refresh");
+    $("#start_chartContainer").CanvasJSChart(g_options);
+    $("#start_lbl_number").text(Data.opNumber);
+    $("#start_lbl_name").text(Data.docName);
+    $("#start_txt_subspecies").text(Data.breeds);
+    $("#start_txt_info_name").text(Data.patientName);
+    $("#start_txt_info_age").text(Data.patientAge);
+    $("#start_txt_info_gender").text(Data.patientSex);
+    $("#start_txt_info_weight").text(Data.patientWeight);
+    $("#start_txt_info_length").text(Data.needleLength);
+    $("#start_txt_info_count").text(totalCount);
     initGraph();
     $("#btn_start").focus();
 });

@@ -67,24 +67,48 @@
             <div data-role="header" data-position="fixed" data-add-back-btn="false" data-back-btn-text="Back"
             data-theme="a" name="rim_header" id="start_rim_header" class="rim_header  start_rim_header">
                 <h1 dsid="rim_header">
-                    VETPIA
+                    EPIA(VETPIA)
                 </h1>
                 <!-- main_navbar -->
                 <div data-role="navbar" id="before_main_navbar" name="main_navbar" dsid="main_navbar"
                 class="main_navbar  before_main_navbar" data-theme="a" style="position: relative;" data-iconpos="left">
-                
                     <ul>
                         <!-- navbar_home_item -->
                         <li>
                             <a data-theme="a" data-icon="home" id="before_navbar_home_item" dsid="navbar_home_item"
                             name="navbar_home_item" class="navbar_item_text">
-                            SCAN
+                            HOME
                             </a>
                         </li>
-                        <li id="scanData" style="text-align:center;">
-                        deaa
+                        <!-- navbar_before_item -->
+                        <li>
+                            <a data-theme="a" data-icon="carat-l" id="before_navbar_before_item" dsid="navbar_before_item"
+                            name="navbar_before_item" class="navbar_item_text">
+                            PRE-OPERATION
+                            </a>
                         </li>
-
+                        <!-- navbar_start_item -->
+                        <li>
+                            <a data-theme="a" data-icon="carat-u" id="before_navbar_start_item" dsid="navbar_start_item"
+                            name="navbar_start_item" class="navbar_item_text">
+                            ON-OPERATION
+                            </a>
+                        </li>
+                        <!-- navbar_after_item -->
+                        <li>
+                            <a data-theme="a" data-icon="carat-r" id="before_navbar_after_item" dsid="navbar_after_item"
+                            name="navbar_after_item" class="navbar_item_text">
+                            POST-OPERATION
+                            </a>
+                        </li>
+                        <!-- navbar_report_item -->
+                        <li>
+                            <a data-theme="a" data-icon="edit" id="before_navbar_report_item" dsid="navbar_report_item"
+                            name="navbar_report_item" class="navbar_item_text">
+                            REPORT
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 
             </div>
@@ -517,7 +541,7 @@
             <!--setting popup -->
             <div data-role="popup" id="popupSetting" data-position-to="#start_main_grid_cell_right_grid_cell_info" data-dismissible="false" style="width:535px;">
                 <div data-role="header" style="padding-top: 15px;">
-                    <p style="color:orange; margin-top:0px; font-weight:400; font-size:15px; text-align:center;">By using this function, a medical accident may occur due to the device malfunction.</p>
+                    <p style="color:orange; margin-top:0px; font-weight:400; font-size:15px; text-align:center; text-shadow:none">By using this function, a medical accident may occur due to the device malfunction.</p>
                 </div>
                 <div data-role="main" class="ui-content">
                     <div class="start_main_grid_cell_right_grid_cell_setting_grid_sheet_wrapper" data-wrapper-for="main_grid_cell_right_grid_cell_setting_grid_sheet">
@@ -540,7 +564,7 @@
                                         <!-- slide_pitch -->
                                         <div data-role="fieldcontain" class="start_slide_pitch ">
                                             <input type="range" reRender="slide_pitch" name="slide_pitch" dsid="slide_pitch"
-                                            id="start_slide_pitch" data-theme="a" data-track-theme="a" value="75" min="30" max="100"
+                                            id="start_slide_pitch" data-theme="a" data-track-theme="a" value="75" min="35" max="75"
                                             tabindex="5" class="slide_pitch  start_slide_pitch" data-mini="false" />
                                         </div>
                                     </div>
