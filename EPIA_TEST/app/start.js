@@ -1,25 +1,41 @@
 initSessionData();
 var position_sub = 20;
 var back_flag = 0;
-
 function initSessionData(){
     let vetpia = sessionStorage.getItem("vetpia");
     if (vetpia == null){
         let today = new Date();
         console.log(today);
         const opNumber = "VET" + today.getTime();
-        console.log(opNumber);  
-        Data["opNumber"] = opNumber; 
-        sessionStorage.setItem("vetpia",JSON.stringify(Data));
     }
         else
         Data =  JSON.parse(vetpia);
 }
 
 var v_dataPoints = [{x:0,y:0}];
-var length = Data.needleLength;
 var min=0,max=0;
 var totalCount = 1; 
+length = parseInt(length);    
+if(length==50) {
+    min=0; max=50;
+    position_sub = 25;}
+else if(length==55){
+    min=5; max=55;
+    position_sub = 25;
+}
+else if(length==60){
+    min=10; max=60;
+    position_sub = 20;
+}
+else if(length==80) {
+    min=30; max=80;
+    position_sub = 0;
+}
+else {
+    min=10; max=60;
+    position_sub = 20;
+}
+
 var g_options = {
     exportEnabled: true,
     theme: "dark1",
@@ -34,7 +50,7 @@ var g_options = {
     axisY: { 
         title: "Force(gf)",
         minimum: 0,
-        maximum: 1500,
+        maximum: 2000,
         
     },
     width:645,
@@ -62,6 +78,28 @@ function adjustContentHeightWithPadding(_page) {
 function setDetailContent(pageUrl) {
     Apperyio.setDetailContent(pageUrl);
 }
+Apperyio.AppPages = [{
+    "name": "after",
+    "location": "after.html"
+}, {
+    "name": "main",
+    "location": "main.html"
+}, {
+    "name": "report",
+    "location": "report.html"
+}, {
+    "name": "before",
+    "location": "before.html"
+}, {
+    "name": "start",
+    "location": "start.html"
+}];
+
+function initGraph(){
+
+}
+
+
 
 
 function listener(event) {
@@ -83,8 +121,6 @@ function listener(event) {
     forceArray = Math.round(forceArray*10)/10;
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - position_sub;
-    document.getElementById("scanData").innerHTML = tmpResult;
-//    updateToGraph(positionArray,forceArray,commandArray);
 }
 
 function getFloat(array) {
@@ -282,7 +318,7 @@ function start_js() {
         start_elementsEvents();
 
         let vetpia = new VETPIA();
-        document.querySelector('#scanData').addEventListener('click', event => {
+        document.querySelector('#btn_start').addEventListener('click', event => {
             vetpia.request()
             .then(_ => vetpia.connect())
             .then(_ => { 
@@ -322,17 +358,54 @@ function start_js() {
         });
         $(document).off("click", '#start_rim_header [name="navbar_home_item"]').on({
             click: function(event) {
-
                 if (!$(this).attr('disabled')) {
-                    alert("aa");
-                    /*
                     Apperyio.navigateTo('main', {
                         transition: 'slide',
                         reverse: false
-                    });*/
+                    });
                 }
             },
         }, '#start_rim_header [name="navbar_home_item"]');
+        $(document).off("click", '#start_rim_header [name="navbar_before_item"]').on({
+            click: function(event) {
+                if (!$(this).attr('disabled')) {
+                    Apperyio.navigateTo('before', {
+                        transition: 'slide',
+                        reverse: false
+                    });
+                }
+            },
+        }, '#start_rim_header [name="navbar_before_item"]');
+        $(document).off("click", '#start_rim_header [name="navbar_start_item"]').on({
+            click: function(event) {
+                if (!$(this).attr('disabled')) {
+                    Apperyio.navigateTo('start', {
+                        transition: 'slide',
+                        reverse: false
+                    });
+                }
+            },
+        }, '#start_rim_header [name="navbar_start_item"]');
+        $(document).off("click", '#start_rim_header [name="navbar_after_item"]').on({
+            click: function(event) {
+                if (!$(this).attr('disabled')) {
+                    Apperyio.navigateTo('after', {
+                        transition: 'slide',
+                        reverse: false
+                    });
+                }
+            },
+        }, '#start_rim_header [name="navbar_after_item"]');
+        $(document).off("click", '#start_rim_header [name="navbar_report_item"]').on({
+            click: function(event) {
+                if (!$(this).attr('disabled')) {
+                    Apperyio.navigateTo('report', {
+                        transition: 'slide',
+                        reverse: false
+                    });
+                }
+            },
+        }, '#start_rim_header [name="navbar_report_item"]');
         $(document).off("click", '#start_rim_container [name="btn_new"]').on({
             click: function(event) {
                 if (!$(this).attr('disabled')) {
@@ -344,7 +417,12 @@ function start_js() {
         $(document).off("click", '#start_rim_container [name="btn_save"]').on({
             click: function(event) {
                 if (!$(this).attr('disabled')) {
-
+                    sessionStorage.setItem("vetpia",JSON.stringify(Data));
+                    clearInterval(graphInterval);
+                    Apperyio.navigateTo('after', {
+                        transition: 'slide',
+                        reverse: false
+                    });
                 }
             },
         }, '#start_rim_container [name="btn_save"]');
@@ -374,20 +452,7 @@ $(document).off("pagecreate", "#start").on("pagecreate", "#start", function(even
 });
 
 $(document).off("pageshow", "#start").on("pageshow", "#start", function(event, ui) {
-    $("#start_slide_needle").attr("min",min);
-    $("#start_slide_needle").attr("max",max);
-    $("#start_slide_needle").val(min);
-    $("#start_slide_needle").slider("refresh");
-    $("#start_chartContainer").CanvasJSChart(g_options);
-    $("#start_lbl_number").text(Data.opNumber);
-    $("#start_lbl_name").text(Data.docName);
-    $("#start_txt_subspecies").text(Data.breeds);
-    $("#start_txt_info_name").text(Data.patientName);
-    $("#start_txt_info_age").text(Data.patientAge);
-    $("#start_txt_info_gender").text(Data.patientSex);
-    $("#start_txt_info_weight").text(Data.patientWeight);
-    $("#start_txt_info_length").text(Data.needleLength);
-    $("#start_txt_info_count").text(totalCount);
+
     initGraph();
     $("#btn_start").focus();
 });
