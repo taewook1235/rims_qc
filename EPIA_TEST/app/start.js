@@ -123,10 +123,9 @@ class VETPIA {
     }
     writeDescripter() {
         return this.device.gatt.getPrimaryService(0xFFF0)
-        .then(service => service.getCharacteristic(0xFFF1))
-        .then(characteristic  => characteristic.getDescriptor(0x2902))
+        .then(service => service.getCharacteristic(0xFFF2))
         .then(descriptor => {
-                let str = stringToBytes("00");
+                let str = stringToBytes("RST\r\n");
                 descriptor.writeValue(str);})
     }
     writeData(data) {
