@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("11");
+viewInfo("13");
 
 
 function listener(event) {
@@ -26,7 +26,7 @@ function listener(event) {
         tmpResult.push(value.getUint8(i));
     }
     
-    
+
     document.querySelector("#device_data_length"). innerHTML =value.byteLength;
     if( value.byteLength == 22){
         forceArray = getFloat(tmpResult.slice(2,6).reverse());
