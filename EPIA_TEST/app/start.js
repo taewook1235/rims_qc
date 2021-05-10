@@ -55,16 +55,18 @@ function listener(event) {
             input_a += String.fromCharCode(tmpResult[i]);
         }
         //var input_a = "T2\t604.8\t29.288\t95230\tOOXXXX\tOOOO\t0";
-        document.querySelector("#device_data").innerHTML = input_a;
         var jbSplit = input_a.split('\t'); 
-        document.querySelector("#data_info").innerHTML =
-            '<p>' +  jbSplit[0] + '</p>' +
-            '<p>' +  jbSplit[1] + '</p>' +
-            '<p>' +  jbSplit[2] + '</p>' +
-            '<p>' +  jbSplit[3] + '</p>' +
-            '<p>' +  jbSplit[4] + '</p>' +
-            '<p>' +  jbSplit[5] + '</p>' +
-            '<p>' +  jbSplit[6] + '</p>';
+        if (!( jbSplit[0] == undefined)){
+            document.querySelector("#device_data").innerHTML = input_a;
+            document.querySelector("#data_info").innerHTML =
+                '<p>' +  jbSplit[0] + '</p>' +
+                '<p>' +  jbSplit[1] + '</p>' +
+                '<p>' +  jbSplit[2] + '</p>' +
+                '<p>' +  jbSplit[3] + '</p>' +
+                '<p>' +  jbSplit[4] + '</p>' +
+                '<p>' +  jbSplit[5] + '</p>' +
+                '<p>' +  jbSplit[6] + '</p>';
+        }
     }
 
 }
@@ -271,7 +273,8 @@ function start_js() {
             .catch(error => { viewInfo("<font color=#ff0000>" + error + "</font>")});
         });
         document.querySelector('#input_write').addEventListener('click', event => {
-            alert("aa");
+            writeData("RST\r\n");
+            alert("Aa");
         });
     };
 
