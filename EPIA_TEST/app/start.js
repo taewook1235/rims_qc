@@ -130,7 +130,7 @@ class VETPIA {
         .then(service => service.getCharacteristic(0xFFF2))
         .then(descriptor => {
                 
-                let str1 =("RST\r\n");
+                let str1 =("75 60 400\r\n");
                 var buffer = new ArrayBuffer();
                 
                 buffer = str2ab(str1);
