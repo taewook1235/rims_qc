@@ -30,7 +30,7 @@ console.log( typeof buffer);
 console.log(buffer);
 
 */
-viewInfo("24");
+viewInfo("25");
 
 
 function listener(event) {
@@ -151,7 +151,9 @@ class VETPIA {
                 
                 buffer = str2ab(str1);
                // encoder.encode(str1);
-                descriptor.writeValue(encoder.encode(str1));
+                const encoder = new TextEncoder('utf-8');
+                const userDescription = encoder.encode(str1);
+                descriptor.writeValue(encoder.encode(userDescription));
             
             
             })
