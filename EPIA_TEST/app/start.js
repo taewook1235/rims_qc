@@ -11,44 +11,39 @@ length = parseInt(length);
 
 
 
-viewInfo("1");
+viewInfo("2");
 function listener(event) {
-
+    const value = event.target.value;
     let tmpResult = [];
     let forceArray = new Uint8Array(4);
     let positionArray = new Uint8Array(4);
     let timeArray = new Uint8Array(4);
     let commandArray =new Uint8Array(4);
-    let testdArray =new Uint8Array(4);
-    for (let i = 0; i < data.byteLength; i++) {
-        tmpResult.push(data[i]);
+    let testArray =new Uint8Array(4);
+    for (let i = 0; i < value.byteLength; i++) {
+        tmpResult.push(value.getUint8(i));
     }
-    document.querySelector("#device_data"). innerHTML =data.byteLength + "a";
+    console.log(tmpResult);
+    
 
-    if ( data.byteLength == 22){
-        
-         //   beatsPerMinute.innerHTML = data.length + " : ";
-            forceArray = getFloat(tmpResult.slice(2,6).reverse());
-            positionArray = getFloat(tmpResult.slice(6,10).reverse());
-            timeArray = getFloat(tmpResult.slice(10,14).reverse());
-            commandArray = getFloat(tmpResult.slice(14,18).reverse());
-            testdArray = getFloat(tmpResult.slice(18,22).reverse());
+    forceArray = getFloat(tmpResult.slice(2,6).reverse());
+    positionArray = getFloat(tmpResult.slice(6,10).reverse());
+    timeArray = getFloat(tmpResult.slice(10,14).reverse());
+    commandArray = getFloat(tmpResult.slice(14,18).reverse());
+    testdArray = getFloat(tmpResult.slice(18,22).reverse());
 
-            
-            forceArray = Math.round(forceArray*10)/10;
-            positionArray = Math.round(positionArray*1000)/1000;
-            positionArray = positionArray - position_sub;
+    forceArray = Math.round(forceArray*10)/10;
+    positionArray = Math.round(positionArray*1000)/1000;
+    positionArray = positionArray - position_sub;
 
-            
-            positionArray = positionArray.toFixed(3);
-            message1 = "FORCE : " + forceArray;
-            message1 += "<BR> LENGTH : " + positionArray;
-            message1 += "<BR> TIME : " + timeArray;
-            message1 += "<BR> COMMAND : " + commandArray;
-            message1 += "<BR> TEST : " + testdArray;
-            document.querySelector("#device_data"). innerHTML =message1;
-        
-    }
+    positionArray = positionArray.toFixed(3);
+    message1 = "FORCE : " + forceArray;
+    message1 += "<BR> LENGTH : " + positionArray;
+    message1 += "<BR> TIME : " + timeArray;
+    message1 += "<BR> COMMAND : " + commandArray;
+    message1 += "<BR> TEST : " + testdArray;
+    document.querySelector("#device_data"). innerHTML =message1;
+
 }
 
 function getFloat(array) {
