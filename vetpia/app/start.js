@@ -419,57 +419,15 @@ function start_js() {
         $(document).off("click", '#start_rim_header [name="navbar_home_item"]').on({
             click: function(event) {
                 if (!$(this).attr('disabled')) {
-                    Apperyio.navigateTo('main', {
-                        transition: 'slide',
-                        reverse: false
-                    });
+
                 }
             },
         }, '#start_rim_header [name="navbar_home_item"]');
-        $(document).off("click", '#start_rim_header [name="navbar_before_item"]').on({
-            click: function(event) {
-                if (!$(this).attr('disabled')) {
-                    Apperyio.navigateTo('before', {
-                        transition: 'slide',
-                        reverse: false
-                    });
-                }
-            },
-        }, '#start_rim_header [name="navbar_before_item"]');
-        $(document).off("click", '#start_rim_header [name="navbar_start_item"]').on({
-            click: function(event) {
-                if (!$(this).attr('disabled')) {
-                    Apperyio.navigateTo('start', {
-                        transition: 'slide',
-                        reverse: false
-                    });
-                }
-            },
-        }, '#start_rim_header [name="navbar_start_item"]');
-        $(document).off("click", '#start_rim_header [name="navbar_after_item"]').on({
-            click: function(event) {
-                if (!$(this).attr('disabled')) {
-                    Apperyio.navigateTo('after', {
-                        transition: 'slide',
-                        reverse: false
-                    });
-                }
-            },
-        }, '#start_rim_header [name="navbar_after_item"]');
-        $(document).off("click", '#start_rim_header [name="navbar_report_item"]').on({
-            click: function(event) {
-                if (!$(this).attr('disabled')) {
-                    Apperyio.navigateTo('report', {
-                        transition: 'slide',
-                        reverse: false
-                    });
-                }
-            },
-        }, '#start_rim_header [name="navbar_report_item"]');
+
         $(document).off("click", '#start_rim_container [name="btn_new"]').on({
             click: function(event) {
                 if (!$(this).attr('disabled')) {
-
+                        alert("aa");
                     
                 }
             },
