@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("6");
+viewInfo("7");
 function listener(event) {
     const value = event.target.value;
     let tmpResult = [];
@@ -46,6 +46,8 @@ function listener(event) {
     }
     else {
         document.querySelector("#device_data"). innerHTML = value;
+    //   document.querySelector("#device_data"). innerHTML = value;
+
     }
 
 }
