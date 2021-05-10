@@ -33,7 +33,7 @@ function listener(event) {
     positionArray = Math.round(positionArray*1000)/1000;
     positionArray = positionArray - position_sub;
     */
-    //document.querySelector("#device_data"). innerHTML = "a" + tmpResult;
+    document.querySelector("#device_data"). innerHTML = "a" + tmpResult;
 }
 
 function getFloat(array) {
