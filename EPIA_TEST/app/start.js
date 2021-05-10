@@ -30,7 +30,7 @@ console.log( typeof buffer);
 console.log(buffer);
 
 */
-viewInfo("23");
+viewInfo("24");
 
 
 function listener(event) {
@@ -150,7 +150,11 @@ class VETPIA {
                 var buffer = new ArrayBuffer();
                 
                 buffer = str2ab(str1);
-                descriptor.writeValue(buffer);})
+               // encoder.encode(str1);
+                descriptor.writeValue(encoder.encode(str1));
+            
+            
+            })
     }
     writeData(data) {
     return this.device.gatt.getPrimaryService(0xFFF0)
@@ -209,7 +213,7 @@ function start_js() {
         });
         document.querySelector('#input_write').addEventListener('click', event => {
             vetpia.writeDescripter();
-            alert("Aa");
+            
         });
     };
 
