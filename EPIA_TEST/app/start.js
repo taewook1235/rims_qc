@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("2");
+viewInfo("3");
 function listener(event) {
     const value = event.target.value;
     let tmpResult = [];
