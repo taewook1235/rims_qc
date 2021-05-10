@@ -378,7 +378,7 @@ function start_js() {
         start_elementsEvents();
 
         let vetpia = new VETPIA();
-        document.querySelector('#btn_start').addEventListener('click', event => {
+        document.querySelector('#before_navbar_home_item').addEventListener('click', event => {
             vetpia.request()
             .then(_ => vetpia.connect())
             .then(_ => { 
