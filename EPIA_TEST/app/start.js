@@ -23,6 +23,7 @@ function listener(event) {
     for (let i = 0; i < data.byteLength; i++) {
         tmpResult.push(data[i]);
     }
+    document.querySelector("#device_data"). innerHTML =data.byteLength + "a";
 
     if ( data.byteLength == 22){
         
