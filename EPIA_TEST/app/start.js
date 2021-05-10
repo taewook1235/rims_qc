@@ -11,7 +11,7 @@ length = parseInt(length);
 
 
 
-viewInfo("10");
+viewInfo("11");
 
 
 function listener(event) {
@@ -26,6 +26,7 @@ function listener(event) {
         tmpResult.push(value.getUint8(i));
     }
     
+    document.querySelector("#device_data_length"). innerHTML =value.byteLength;
     if( value.byteLength == 22){
         forceArray = getFloat(tmpResult.slice(2,6).reverse());
         positionArray = getFloat(tmpResult.slice(6,10).reverse());
@@ -52,7 +53,6 @@ function listener(event) {
             input_a += String.fromCharCode(tmpResult[i]);
             
         }
-        //var input_a = "T2\t604.8\t29.288\t95230\tOOXXXX\tOOOO\t0";
         document.querySelector("#device_data").innerHTML = input_a;
         var jbSplit = input_a.split('\t'); 
         document.querySelector("#data_info").innerHTML =
