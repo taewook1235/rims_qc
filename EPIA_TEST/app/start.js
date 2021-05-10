@@ -211,7 +211,8 @@ function start_js() {
             
         });
 
-        //var input_device = "T1\t604.8\t29.288\t95230\tOOXXXX\tXXOO\t0";
+        var input_device = "T2\t604.8\t29.288\t95230\tOOXXXX\tXXOO\t0";
+        test_message(input_device);
 
 
 
@@ -325,15 +326,26 @@ function test_message(input_device){
         " 전진 버튼 : (" + input[5].substr(3,1) + ") <br>" + 
         " 미세전진 버튼 : (" + input[5].substr(2,1) + ") <br>" + 
         " 정지 버튼 : (" + input[5].substr(1,1) + ") <br>" + 
-        " 후진 버튼 : (" + input[5].substr(0,1) + ") <br>" + 
+        " 후진 버튼 : (" + input[5].substr(0,1) + ") <br><br>" + 
 
         " <font color='red' size='5'>불량 기준 및 대처 방안 </font><br>" +
                 " 검사자가 버튼을 누르기 전 O 표시가 되어있음 <br>" +
-                "&nbsp&nbsp> (1) 버튼을 눌러보며 눌리는 소리가 나는지 확인하고, PCB 와 스위치 노브간 재결합한다. ");
+                "&nbsp&nbsp>버튼을 눌러보며 눌리는 소리가 나는지 확인하고, 버튼과 스위치 노브간 결합을 확인한다. ");
             break;
         case 'T2':
-            class_change(2);
-            break;
+            document.getElementById("TEST1").className = "main_grid_top_2_clear"
+            document.getElementById("TEST2").className = "main_grid_top_2_clear"
+            document.getElementById("TEST3").className = "main_grid_top_2_run"
+            viewTest("센서 검사", 
+            "센서를 손으로 힘을 가해보며 값의 변화를 검사한다. 정상 동작시 전진버튼을 누르면 다음 단계로 넘어갑니다. <br><br>" +
+            " force : ( " + input[1] + " ) [ gf ] <br><br>" +  
+    
+            " <font color='red' size='5'>불량 기준 및 대처 방안 </font><br>" +
+                    " 힘을 가해도 센서 값의 큰 변화가 없음 또는 5000gf 이상 <br>" +
+                    "&nbsp&nbsp ><font color='yellow'>센서 교체 </font> <br>" + 
+                    " 변화는 있으나 센서에 힘을 가하지 않아도 2000gf 이상 <br>" +
+                    "&nbsp&nbsp ><font color='yellow'>센서 홀더 재결합 또는 교체 </font>");
+                break;
         case 'T3':
             class_change(3);
             break;
@@ -365,9 +377,6 @@ function class_change(num){
 
             break;
         case 2:
-            document.getElementById("TEST1").className = "main_grid_top_2_clear"
-            document.getElementById("TEST2").className = "main_grid_top_2_clear"
-            document.getElementById("TEST3").className = "main_grid_top_2_run"
             break;
         case 3:
             document.getElementById("TEST1").className = "main_grid_top_2_clear"
