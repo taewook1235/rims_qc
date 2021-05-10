@@ -67,7 +67,7 @@ function listener(event) {
     else {
         let input_device = "";
         for (let i = 0; i < value.byteLength; i++) {
-            input_a += String.fromCharCode(tmpResult[i]);
+            input_device += String.fromCharCode(tmpResult[i]);
         }
       //  var input_a = "T2\t604.8\t29.288\t95230\tOOXXXX\tOOOO\t0";
       test_message(input_device);
