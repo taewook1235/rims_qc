@@ -23,7 +23,7 @@ function listener(event) {
     for (let i = 0; i < value.byteLength; i++) {
         tmpResult.push(value.getUint8(i));
     }
-    console.log(tmpResult);
+    console.log(tmpResult.lenght);
     
 
     forceArray = getFloat(tmpResult.slice(2,6).reverse());
@@ -240,7 +240,7 @@ function start_js() {
                 graphInterval = setInterval(function(){
                     vetpia.startNotifications(listener);
                     vetpia.stopNotifications(listener);
-                },200)
+                },50)
             })
             .catch(error => { viewInfo("<font color=#ff0000>" + error + "</font>")});
         });
