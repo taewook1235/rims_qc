@@ -422,8 +422,6 @@ function test_message(input_device){
             break;
 
     }
-            
-       // document.getElementById("TEST1").className = "main_grid_top_2_clear";
 }
 function viewTest(str_master, str_detail){
     document.querySelector("#test_master").innerHTML = str_master;
