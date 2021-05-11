@@ -63,8 +63,8 @@ function listener(event) {
         document.querySelector("#data_info").innerHTML = "";
         var product = "";
         var FWversion = "1.";
-        var ver = String((testArray/100) % 10);
-
+        var ver = String(((testArray/100) % 10).toFixed(0));
+        
         
         if ( (testArray/10) % 10 == 0){
             product = "EPIA";
@@ -75,7 +75,7 @@ function listener(event) {
         viewTest("검사모드 연결 ", 
         "검사 기기 ( " + product + " ) <br>" + 
         "F/W Version ( " +  FWversion + ver  +  " ) <br>" + 
-        "사용횟수 : "  + Number((testArray%1).toFixed(2)) + " 회<br><br>" +
+        "사용횟수 : "  + Number(((testArray%1 * 100)).toFixed(0)) + " 회<br><br>" +
         "검사 모드로 동작시켜주세요.<br> 정지버튼 누른상태에서 후진버튼 5회 누르면 검사모드로 동작됩니다. <br>" );
 
     }
