@@ -65,7 +65,6 @@ function listener(event) {
         var FWversion = "1.";
         var ver = String((testArray/100) % 10);
 
-        FWversion.after(ver);
         
         if ( (testArray/10) % 10 == 0){
             product = "EPIA";
@@ -75,7 +74,7 @@ function listener(event) {
         }
         viewTest("검사모드 연결 ", 
         "검사 기기 ( " + product + " ) " + 
-        "F/W Version ( " +  FWversion  +  " ) " + 
+        "F/W Version ( " +  FWversion + ver  +  " ) " + 
         "사용횟수 : "  +Number((testArray%1).toFixed(2)) + " 회" +
         "검사 모드로 동작시켜주세요.<br> 정지버튼 누른상태에서 후진버튼 5회 누르면 검사모드로 동작됩니다. <br>" );
 
