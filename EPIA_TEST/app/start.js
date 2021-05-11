@@ -61,8 +61,19 @@ function listener(event) {
 
         document.querySelector("#device_data"). innerHTML =message1;
         document.querySelector("#data_info").innerHTML = "";
-
+        var product = "";
+        var FWversion = "1.";
+        FWversion.after((testArray/100) % 10);
+        
+        if ( (testArray/10) % 10 == 0){
+            product = "EPIA";
+        }
+        if ( (testArray/10) % 10 == 1){
+            product = "VETPIA";
+        }
         viewTest("검사모드 연결 ", 
+        "검사 기기 ( " + + " ) " + 
+        "F/W Version ( 1." +    +  " ) " + 
         "검사 모드로 동작시켜주세요.<br> 정지버튼 누른상태에서 후진버튼 5회 누르면 검사모드로 동작됩니다. <br>" );
 
     }
