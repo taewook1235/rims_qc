@@ -25,10 +25,6 @@ function str2ab(str) {
 
 
 
-viewInfo("EPIA(VETPIA) TEST");
-viewTest("EPIA(VETPIA) TEST", 
-"EPIA(VETPIA) TEST <br>" );
-
 
 function listener(event) {
     const value = event.target.value;
@@ -185,6 +181,10 @@ function start_js() {
         start_deviceEvents();
         start_windowEvents();
         start_elementsEvents();
+
+        viewInfo("EPIA(VETPIA) TEST");
+        viewTest("EPIA(VETPIA) TEST", 
+        "EPIA(VETPIA) TEST <br>" );
 
         let vetpia = new VETPIA();
         document.querySelector('#btn_start').addEventListener('click', event => {
