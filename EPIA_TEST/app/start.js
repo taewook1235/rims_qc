@@ -25,7 +25,7 @@ function str2ab(str) {
 
 
 
-viewInfo("M");
+viewInfo("EPIA(VETPIA) TEST");
 viewTest("EPIA(VETPIA) TEST", 
 "EPIA(VETPIA) TEST <br>" );
 
@@ -313,6 +313,12 @@ function test_message(input_device){
             '<p>' +  input[5] + '</p>' + // btn check
             '<p>' +  input[6] + '</p>';  // moving
 
+    if (input[4].substr(5,1) == 'O' ){
+        document.getElementById("TEST5").className = "main_grid_top_2_clear";
+    }
+    else {
+        document.getElementById("TEST5").className = "main_grid_top_2";
+    }
     switch(input[0]){
         case 'T0':            
         document.getElementById("TEST1").className = "main_grid_top_2_run";
