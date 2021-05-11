@@ -64,18 +64,17 @@ function listener(event) {
         var product = "";
         var FWversion = "1.";
         var ver = String(((testArray/100) % 10).toFixed(0));
-        
-        
-        if ( (testArray/10) % 10 == 0){
+        var productCode = Math.round(Number(testArray/10) % 10);
+        if ( productCode == 0){
             product = "EPIA";
         }
-        if ( (testArray/10) % 10 == 1){
+        if ( productCode == 1){
             product = "VETPIA";
         }
         viewTest("검사모드 연결 ", 
         "검사 기기 ( " + product + " ) <br>" + 
         "F/W Version ( " +  FWversion + ver  +  " ) <br>" + 
-        "사용횟수 : "  + Number(((testArray%1 * 100)).toFixed(0)) + " 회<br><br>" +
+        "사용횟수 : "  + Math.round(Number(testArray%1 * 100)) + " 회<br><br>" +
         "검사 모드로 동작시켜주세요.<br> 정지버튼 누른상태에서 후진버튼 5회 누르면 검사모드로 동작됩니다. <br>" );
 
     }
@@ -194,6 +193,7 @@ function start_js() {
         start_windowEvents();
         start_elementsEvents();
 
+
         let vetpia = new VETPIA();
         document.querySelector('#btn_start').addEventListener('click', event => {
 
@@ -226,7 +226,7 @@ function start_js() {
         });
         
 
-        viewInfo("EPIA(VETPIA) TEST 2.0.0");
+        viewInfo("EPIA(VETPIA) TEST 1.1.0");
        // viewTest("EPIA(VETPIA) TEST", 
        // "EPIA(VETPIA) TEST <br>" );
 /*
@@ -291,6 +291,7 @@ function start_js() {
 
     });
     start_onLoad();
+
 };
 $(document).off("pagecreate", "#start").on("pagecreate", "#start", function(event, ui) {
     start_js();
