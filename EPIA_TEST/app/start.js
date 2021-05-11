@@ -63,7 +63,7 @@ function listener(event) {
         document.querySelector("#data_info").innerHTML = "";
         var product = "";
         var FWversion = "1.";
-        var ver = string((testArray/100) % 10);
+        var ver = String((testArray/100) % 10);
         FWversion.after(ver);
         
         if ( (testArray/10) % 10 == 0){
