@@ -182,10 +182,6 @@ function start_js() {
         start_windowEvents();
         start_elementsEvents();
 
-        viewInfo("EPIA(VETPIA) TEST");
-        viewTest("EPIA(VETPIA) TEST", 
-        "EPIA(VETPIA) TEST <br>" );
-
         let vetpia = new VETPIA();
         document.querySelector('#btn_start').addEventListener('click', event => {
 
@@ -216,6 +212,11 @@ function start_js() {
             vetpia.writeData(userDescription);
             
         });
+        
+
+        viewInfo("EPIA(VETPIA) TEST");
+        viewTest("EPIA(VETPIA) TEST", 
+        "EPIA(VETPIA) TEST <br>" );
 /*
         var input_device = "T4\t604.8\t29.288\t95230\tOOXXXX\tXXOO\t1200";
         test_message(input_device);
