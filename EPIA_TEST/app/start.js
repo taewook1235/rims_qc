@@ -65,10 +65,10 @@ function listener(event) {
         var FWversion = "1.";
         var ver = String(((testArray/100) % 10).toFixed(0));
         var productCode = Math.round(Number(testArray/10) % 10);
-        if ( productCode == 0){
+        if ( productCode == 1){
             product = "EPIA";
         }
-        if ( productCode == 1){
+        if ( productCode == 2){
             product = "VETPIA";
         }
         viewTest("검사모드 연결 ", 
