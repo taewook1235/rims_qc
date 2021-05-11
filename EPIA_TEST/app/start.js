@@ -215,8 +215,8 @@ function start_js() {
         
 
         viewInfo("EPIA(VETPIA) TEST");
-        viewTest("EPIA(VETPIA) TEST", 
-        "EPIA(VETPIA) TEST <br>" );
+       // viewTest("EPIA(VETPIA) TEST", 
+       // "EPIA(VETPIA) TEST <br>" );
 /*
         var input_device = "T4\t604.8\t29.288\t95230\tOOXXXX\tXXOO\t1200";
         test_message(input_device);
