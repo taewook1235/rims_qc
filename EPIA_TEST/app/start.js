@@ -73,9 +73,9 @@ function listener(event) {
             product = "VETPIA";
         }
         viewTest("검사모드 연결 ", 
-        "검사 기기 ( " + product + " ) " + 
-        "F/W Version ( " +  FWversion + ver  +  " ) " + 
-        "사용횟수 : "  +Number((testArray%1).toFixed(2)) + " 회" +
+        "검사 기기 ( " + product + " ) <br>" + 
+        "F/W Version ( " +  FWversion + ver  +  " ) <br>" + 
+        "사용횟수 : "  + Number((testArray%1).toFixed(2)) + " 회<br>" +
         "검사 모드로 동작시켜주세요.<br> 정지버튼 누른상태에서 후진버튼 5회 누르면 검사모드로 동작됩니다. <br>" );
 
     }
