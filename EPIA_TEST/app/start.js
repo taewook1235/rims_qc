@@ -75,7 +75,7 @@ function listener(event) {
         viewTest("검사모드 연결 ", 
         "검사 기기 ( " + product + " ) <br>" + 
         "F/W Version ( " +  FWversion + ver  +  " ) <br>" + 
-        "사용횟수 : "  + Number((testArray%1).toFixed(2)) + " 회<br>" +
+        "사용횟수 : "  + Number((testArray%1).toFixed(2)) + " 회<br><br>" +
         "검사 모드로 동작시켜주세요.<br> 정지버튼 누른상태에서 후진버튼 5회 누르면 검사모드로 동작됩니다. <br>" );
 
     }
@@ -84,7 +84,6 @@ function listener(event) {
         for (let i = 0; i < value.byteLength; i++) {
             input_device += String.fromCharCode(tmpResult[i]);
         }
-      //  var input_a = "T2\t604.8\t29.288\t95230\tOOXXXX\tOOOO\t0";
       test_message(input_device);
     }
 
