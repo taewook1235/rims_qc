@@ -22,10 +22,6 @@ function str2ab(str) {
   return buf;
 }
 
-
-
-
-
 function listener(event) {
     const value = event.target.value;
     let tmpResult = [];
