@@ -153,7 +153,7 @@ class VETPIA {
                 descriptor.writeValue(encoder.encode(userDescription));
             
             
-            })
+            });
     }
     writeData(data) {
     return this.device.gatt.getPrimaryService(0xFFF0)
